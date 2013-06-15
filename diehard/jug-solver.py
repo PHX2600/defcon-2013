@@ -73,42 +73,30 @@ s.send('get red jug\n')
 time.sleep(.2)
 
 
+
+if (blueMax < redMax):
+
+    small = 'blue'
+    large = 'red'
+
+else:
+
+    small = 'red'
+    large = 'blue'
+
+
 while (redCurrent != target and blueCurrent != target):
 
-    if (blueMax < redMax):
-
-        small = 'blue'
-        large = 'red'
-
-
-    if (redMax < blueMax):
-
-        small = 'red'
-        large = 'blue'
-
-        # Fill the blue jug
-        s.send('fill blue jug\n')
-        time.sleep(.2)
-
-        # Pour blue into red
-        s.send('pour blue jug into red jug\n')
-        time.sleep(.2)
-        out = s.recv(1024)
-
-        print out
 
 
 
-    if (redMax < blueMax):
+    # Fill the blue jug
+    s.send('fill ' + small + ' jug\n')
+    time.sleep(.2)
 
-        # Fill the red jug
-        s.send('fill red jug\n')
-        time.sleep(.2)
+    # Pour blue into red
+    s.send('pour blue jug into red jug\n')
+    time.sleep(.2)
+    out = s.recv(1024)
 
-        # Pour red into blue
-        s.send('pour red jug into blue jug\n')
-        time.sleep(.2)
-        out = s.recv(1024)
-
-        print out
-
+    print out
