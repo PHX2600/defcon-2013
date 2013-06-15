@@ -166,6 +166,9 @@ while ('hexidecimal' not in out):
 
     print strPos
 
+    start = strPos + 8
+    end = strPos + 9
+
     door = out[strPos + 8:strPos + 9]
 
     print door
