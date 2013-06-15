@@ -46,4 +46,6 @@ time.sleep(.2)
 str = s.recv(1024)
 blueArray = [int(s) for s in str.split() if s.isdigit()]
 
+blue = blueArray[1]
+
 print blue
