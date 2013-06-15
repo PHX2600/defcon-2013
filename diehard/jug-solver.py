@@ -86,6 +86,8 @@ while (redCurrent != target && blueCurrent != target):
         time.sleep(.2)
         out = s.recv()
 
+        print out
+
 
 
     if (redMax < blueMax):
@@ -98,4 +100,6 @@ while (redCurrent != target && blueCurrent != target):
         s.send('pour red jug into blue jug')
         time.sleep(.2)
         out = s.recv()
+
+        print out
 
