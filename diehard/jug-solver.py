@@ -143,6 +143,8 @@ s.send('put ' + large + ' jug onto scale\n')
 time.sleep(.2)
 out = s.recv(1024)
 
+print out
+
 # Go north
 s.send('n')
 time.sleep(.2)
