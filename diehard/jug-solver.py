@@ -32,7 +32,7 @@ out = s.recv(4096)
 
 room = 1
 
-print '*** NOW ENTERING ROOM ***' + room
+print '***** NOW ENTERING ROOM ' + room + ' *****'
 
 while ('key' not in out):
 
