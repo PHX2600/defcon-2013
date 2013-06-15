@@ -99,35 +99,45 @@ print largeCurrent
 
 while (smallCurrent != target and largeCurrent != target):
 
-    # Fill the small jug
-    s.send('fill ' + small + ' jug\n')
-    time.sleep(.2)
-    s.recv(1024)
+    if (smallCurrent == 0):
 
-    # Pour small into large
-    s.send('pour ' + small + ' jug into ' + large + ' jug\n')
-    time.sleep(.2)
-    s.recv(1024)
+        # Fill the small jug
+        s.send('fill ' + small + ' jug\n')
+        time.sleep(.2)
+        s.recv(1024)
 
-    # Get small jug current value
-    s.send('look ' + small + ' jug\n')
-    time.sleep(.2)
-    out = s.recv(1024)
-    outArray = [int(i) for i in out.split() if i.isdigit()]
+        # Pour small into large
+        s.send('pour ' + small + ' jug into ' + large + ' jug\n')
+        time.sleep(.2)
+        s.recv(1024)
 
-    smallCurrent = outArray[0]
+        # Get small jug current value
+        s.send('look ' + small + ' jug\n')
+        time.sleep(.2)
+        out = s.recv(1024)
+        outArray = [int(i) for i in out.split() if i.isdigit()]
 
-    print smallCurrent
+        smallCurrent = outArray[0]
+
+        print smallCurrent
 
 
-    # Get large jug current value
-    s.send('look ' + large + ' jug\n')
-    time.sleep(.2)
-    out = s.recv(1024)
-    outArray  = [int(i) for i in out.split() if i.isdigit()]
-    largeCurrent = outArray[0]
+        # Get large jug current value
+        s.send('look ' + large + ' jug\n')
+        time.sleep(.2)
+        out = s.recv(1024)
+        outArray  = [int(i) for i in out.split() if i.isdigit()]
+        largeCurrent = outArray[0]
 
-    print largeCurrent
+        print largeCurrent
+
+    else:
+
+        # Dump large jug
+        s.send('empty ' + large + ' jug\n')
+
+
+        # Pour small into large
 
 
     exit(1)
