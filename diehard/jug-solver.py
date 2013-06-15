@@ -171,9 +171,7 @@ while ('hexidecimal' not in out):
 
     print door
 
-    exit(1)
-
-    s.send('n\n')
+    s.send(door + '\n')
     time.sleep(.1)
     out = s.recv(1024)
 
