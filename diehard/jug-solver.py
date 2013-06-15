@@ -17,5 +17,6 @@ s.send('e\n')
 s.send('n\n')
 s.send('w\n')
 s.send('n\n')
+s.send('n\n')
 
 print s.recv(4096)
