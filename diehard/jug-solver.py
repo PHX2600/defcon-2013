@@ -94,7 +94,7 @@ else:
     exit(1)
 
 
-while (redCurrent != target and blueCurrent != target):
+while (smallCurrent != target and largeCurrent != target):
 
     # Fill the small jug
     s.send('fill ' + small + ' jug\n')
