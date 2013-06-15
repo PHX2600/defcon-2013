@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # Solves a randomized 8-puzzle using A* algorithm with plug-in heuristics
 
 import random
@@ -20,11 +22,40 @@ def moveLeft(s):
 def moveRight(s):
     s.send("r\n")
 
+def findTheZero(matrix):
+    k = 0
+    for i in matrix.getMatrix():
+        for j in i:
+            if(j == 0):
+                return k
+            k = k + 1
+#lddrurdluldrruuldrull
+def findMove(before, after):
+    #print before
+    #print after
+    #find the 0
+    b = findTheZero(before)
+    a = findTheZero(after)
+    #print a
+    #print b
+
+    if (a-b == 1):
+        return "l"
+
+    if (a-b == -1):
+        return "r"
+
+    if (a-b == 3):
+        return "u"
+
+    if (a-b == -3):
+        return "d"
 
 def parsePuzzle(s):
     puzList = []
     num = 0
     lines = s.recv(1024).split('\n')
+    print lines
     i = 0
     for line in lines:
         if( (i == 3) or (i == 8) or (i == 13) ):
@@ -32,7 +63,6 @@ def parsePuzzle(s):
                 num = 0
             else:
                 num = int(line[3])
-            print line
 
             puzList.append(num)
 
@@ -75,6 +105,9 @@ class EightPuzzle:
 
     def setMatrix(self, matrix):
         self.adj_matrix = matrix
+
+    def getMatrix(self):
+        return self.adj_matrix
 
     def __eq__(self, other):
         if self.__class__ != other.__class__:
@@ -267,29 +300,44 @@ def h_default(puzzle):
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("pieceofeight2.shallweplayaga.me", 8273))
-    puzList = parsePuzzle(s)
-    matrix = [[puzList[0], puzList[1], puzList[2]], 
-              [puzList[3], puzList[4], puzList[5]],
-              [puzList[6], puzList[7], puzList[8]]]
+
+    iteration = 0
+    while True:
+        iteration += 1
+        print "OMG ITERATION NUMBER:  " + str(iteration)
+        puzList = parsePuzzle(s)
+        matrix = [[puzList[0], puzList[1], puzList[2]], 
+                  [puzList[3], puzList[4], puzList[5]],
+                  [puzList[6], puzList[7], puzList[8]]]
+        
+        p = EightPuzzle()
+        p.setMatrix(matrix)
+        print p
+
+        l = EightPuzzle()
+        l.setMatrix(matrix)
+
+        path, count = p.solve(h_manhattan)
+        path.reverse()
+
+        lastMatrix = l
+        output = ""
+        for i in path:
+            print i
+            output += findMove(lastMatrix, i)
+            lastMatrix = i
+
+        output += "\n"
+        print output
+        print 
+        s.send(output)
+       # for i in range(2, len(path)):
+        print s.recv(99999)
+
+        s.send("f\n")
     
-    p = EightPuzzle()
-    p.setMatrix(matrix)
-    print p
-
-    path, count = p.solve(h_manhattan)
-    path.reverse()
-    for i in path: 
-        print i
-
-    print "Solved with Manhattan distance exploring", count, "states"
-    path, count = p.solve(h_manhattan_lsq)
-    print "Solved with Manhattan least squares exploring", count, "states"
-    path, count = p.solve(h_linear)
-    print "Solved with linear distance exploring", count, "states"
-    path, count = p.solve(h_linear_lsq)
-    print "Solved with linear least squares exploring", count, "states"
-#    path, count = p.solve(heur_default)
-#    print "Solved with BFS-equivalent in", count, "moves"
+    print "xxxERMAGERDxxx This should be the next puzzle\n\n\n"
+    print s.recv(99999)
 
 if __name__ == "__main__":
     main()
