@@ -30,6 +30,10 @@ time.sleep(.2)
 
 out = s.recv(4096)
 
+room = 1
+
+print '*** NOW ENTERING ROOM ***' + room
+
 while ('key' not in out):
 
     # Get blue jug value
