@@ -33,7 +33,8 @@ print s.recv(4096)
 # Get red jug value
 s.send('look red jug\n')
 time.sleep(.2)
-red = re.match('^[0-9]+$', s.recv(1024))
+str = rs.recv(1024)
+red = [int(s) for s in str.split() if s.isdigit()]
 
 print red
 
