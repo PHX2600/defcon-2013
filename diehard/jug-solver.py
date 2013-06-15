@@ -17,14 +17,5 @@ s.send('e')
 s.send('n')
 s.send('w')
 s.send('n')
+
 print s.recv(4096)
-
-
-
-
-
-
-
-
-
-nnnnnnenwn
