@@ -31,7 +31,7 @@ time.sleep(.1)
 # Set room number
 room = 1
 
-out = s.recv(4096)
+out = s.recv(1024)
 
 while ('hexidecimal' not in out):
 
