@@ -144,8 +144,3 @@ while (smallCurrent != target and largeCurrent != target):
     largeCurrent = outArray[0]
 
     print largeCurrent
-
-
-
-
-    exit(1)
