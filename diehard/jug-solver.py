@@ -38,7 +38,7 @@ out = s.recv(1024)
 blue = [int(i) for i in out.split() if i.isdigit()]
 
 blueCurrent = blue[0]
-blueMax     = blue[1]
+blueMax = blue[1]
 
 print blueMax
 
@@ -49,7 +49,7 @@ time.sleep(.2)
 out = s.recv(1024)
 red = [int(i) for i in out.split() if i.isdigit()]
 
-redMax     = red[1]
+redMax = red[1]
 
 print redMax
 
@@ -122,7 +122,6 @@ while (smallCurrent != target and largeCurrent != target):
         s.send('pour ' + small + ' jug into ' + large + ' jug\n')
         time.sleep(.2)
         s.recv(1024)
-
 
     # Get small jug current value
     s.send('look ' + small + ' jug\n')
