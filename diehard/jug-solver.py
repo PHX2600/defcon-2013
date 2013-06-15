@@ -34,8 +34,8 @@ print s.recv(4096)
 
 # Get red jug value
 s.send('look red jug')
-red = s.recv('1024')
+red = s.recv(1024)
 
 # Get blue jug value
 s.send('look blue jug')
-blue = s.recv('1024')
+blue = s.recv(1024)
