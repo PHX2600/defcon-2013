@@ -65,9 +65,11 @@ target = targetArray[0]
 
 print target
 
-# Pick up the damned jugs
+
+# Pick up the goddamn jugs
 s.send('get blue jug')
 s.send('get red jug')
+
 
 while (redCurrent != target && blueCurrent != target):
 
