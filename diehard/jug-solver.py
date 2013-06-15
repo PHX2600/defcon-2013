@@ -43,7 +43,6 @@ while ('hexidecimal' not in out):
     s.send('get red jug\n')
     time.sleep(.1)
 
-
     # Get blue jug value
     s.send('look blue jug\n')
     time.sleep(.1)
