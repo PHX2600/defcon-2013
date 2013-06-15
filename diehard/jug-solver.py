@@ -49,3 +49,5 @@ blueArray = [int(i) for i in str.split() if i.isdigit()]
 blue = blueArray[1]
 
 print blue
+
+# Get target value
