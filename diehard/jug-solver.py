@@ -33,7 +33,7 @@ room = 1
 
 out = s.recv(4096)
 
-while ('key' not in out):
+while ('hexidecimal' not in out):
 
     print '***** NOW ENTERING ROOM ' + str(room) + ' *****'
 
