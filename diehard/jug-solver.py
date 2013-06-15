@@ -158,7 +158,7 @@ while ('hexidecimal' not in out):
     # Find exit and go
     s.send('look\n')
     time.sleep(.1)
-    out - s.recv(1024)
+    out = s.recv(1024)
 
     print out
 
