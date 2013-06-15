@@ -38,7 +38,7 @@ redArray = [int(s) for s in str.split() if s.isdigit()]
 
 red = redArray[1]
 
-print red[1]
+print red
 
 # Get blue jug value
 s.send('look blue jug\n')
