@@ -145,6 +145,9 @@ out = s.recv(1024)
 
 print out
 
+# Drop yo shit
+s.send('drop ' + small ' jug\n')
+
 # Go north
 s.send('n\n')
 time.sleep(.2)
