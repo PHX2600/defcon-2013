@@ -37,6 +37,13 @@ while ('hexidecimal' not in out):
 
     print '***** NOW ENTERING ROOM ' + str(room) + ' *****'
 
+    # Pick up the goddamn jugs
+    s.send('get blue jug\n')
+    time.sleep(.1)
+    s.send('get red jug\n')
+    time.sleep(.1)
+
+
     # Get blue jug value
     s.send('look blue jug\n')
     time.sleep(.1)
@@ -68,14 +75,6 @@ while ('hexidecimal' not in out):
     target = targetArray[0]
 
     print target
-
-
-    # Pick up the goddamn jugs
-    s.send('get blue jug\n')
-    time.sleep(.1)
-    s.send('get red jug\n')
-    time.sleep(.1)
-
 
     # Set small and large values
     if (blueMax < redMax):
