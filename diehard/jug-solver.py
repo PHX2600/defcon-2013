@@ -166,7 +166,7 @@ while ('hexidecimal' not in out):
     start = strPos + 7
     end = strPos + 8
 
-    print door
+    door = out[start:end]
 
     s.send(door + '\n')
     time.sleep(.1)
