@@ -86,7 +86,7 @@ elseif (redMax < bleMax):
 
 else:
 
-    kill
+    exit(1)
 
 
 while (redCurrent != target and blueCurrent != target):
