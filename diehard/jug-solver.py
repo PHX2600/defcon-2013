@@ -135,7 +135,6 @@ while ('hexidecimal' not in out):
         print out
 
         outArray = [int(i) for i in out.split() if i.isdigit()]
-
         smallCurrent = outArray[0]
 
         # Get large jug current value
