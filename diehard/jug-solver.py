@@ -140,3 +140,7 @@ while (smallCurrent != target and largeCurrent != target):
     largeCurrent = outArray[0]
 
     print largeCurrent
+
+
+print smallCurrent
+print largeCurrent
