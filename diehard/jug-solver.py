@@ -64,7 +64,6 @@ while ('hexidecimal' not in out):
     time.sleep(.1)
     out = s.recv(8192)
     targetArray = [int(i) for i in out.split() if i.isdigit()]
-
     target = targetArray[0]
     print target
 
