@@ -110,9 +110,9 @@ while (smallCurrent != target and largeCurrent != target):
     smallCurrent = outArray[0]
 
     # Get large jug current value
-    out = s.send('look ' + large + ' jug')
-    outArray = [int(i) for i in out.split() if i.isdigit()]
-
+    out          = s.send('look ' + large + ' jug')
+    outArray     = [int(i) for i in out.split() if i.isdigit()]
+    largeCurrent = outArray[0]
 
 
 
