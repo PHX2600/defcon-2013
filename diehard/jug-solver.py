@@ -162,6 +162,8 @@ while ('hexidecimal' not in out):
 
     print out
 
+    exit(1)
+
     s.send('n\n')
     time.sleep(.1)
     out = s.recv(1024)
