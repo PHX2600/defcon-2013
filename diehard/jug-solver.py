@@ -39,14 +39,12 @@ while ('hexidecimal' not in out):
 
     # Get blue jug value
     s.send('look blue jug\n')
-    time.sleep(.1)
     out = s.recv(8192)
+    print out
     blue = [int(i) for i in out.split() if i.isdigit()]
 
     blueMax = blue[1]
-
     print blueMax
-
 
     # Get red jug value
     s.send('look red jug\n')
@@ -55,9 +53,7 @@ while ('hexidecimal' not in out):
     red = [int(i) for i in out.split() if i.isdigit()]
 
     redMax = red[1]
-
     print redMax
-
 
     # Get target value
     s.send('look inscription\n')
