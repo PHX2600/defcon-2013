@@ -37,7 +37,6 @@ time.sleep(.2)
 out = s.recv(1024)
 blue = [int(i) for i in out.split() if i.isdigit()]
 
-blueCurrent = blue[0]
 blueMax = blue[1]
 
 print blueMax
