@@ -79,7 +79,7 @@ if (blueMax < redMax):
     small = 'blue'
     large = 'red'
 
-elseif (redMax < blueMax):
+elif (redMax < blueMax):
 
     small = 'red'
     large = 'blue'
