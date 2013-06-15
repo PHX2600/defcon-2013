@@ -139,7 +139,7 @@ while (smallCurrent != target and largeCurrent != target):
     print str(smallCurrent) + '/' + str(largeCurrent)
 
 # Put large jug on scale
-s.send('put ' + large + ' jug onto scale')
+s.send('put ' + large + ' jug onto scale\n')
 time.sleep(.2)
 out = s.recv(1024)
 
