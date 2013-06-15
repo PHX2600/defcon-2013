@@ -76,8 +76,10 @@ time.sleep(.2)
 if (blueMax < redMax):
 
     small = 'blue'
-    smallCurrent =
+    smallCurrent = blue[0]
+
     large = 'red'
+    largeCurrent = red[0]
 
 elif (redMax < blueMax):
 
