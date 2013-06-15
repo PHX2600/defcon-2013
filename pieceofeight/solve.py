@@ -1,15 +1,16 @@
 #!/usr/bin/python
 
-# Solves a randomized 8-puzzle using A* algorithm with plug-in heuristics
-
-import random
+import sys
 import math
+import heapq
+import copy
 import socket
 import time
+from puzzle import Puzzle
 
-_goal_state = [[1,2,3],
-               [4,5,6],
-               [7,8,0]]
+#4 7 8
+#6 1 0
+#3 2 5
 
 def moveUp(s):
     s.send("u\n")
@@ -55,293 +56,274 @@ def findMove(before, after):
 def parsePuzzle(s):
     puzList = []
     num = 0
-    time.sleep(1)
+    time.sleep(.5)
     lines = s.recv(1024).split('\n')
     print lines
     i = 0
     for line in lines:
         if( (i == 3) or (i == 8) or (i == 13) ):
+            innerList = []
             if(line[3] == ' '):
                 num = 0
             else:
                 num = int(line[3])
 
-            puzList.append(num)
+            innerList.append(num)
 
             if(line[9] == ' '):
                 num = 0
             else:
                 num = int(line[9])
 
-            puzList.append(num)
+            innerList.append(num)
 
             if(line[15] == ' '):
                 num = 0
             else:
                 num = int(line[15])
 
-            puzList.append(num)
+            innerList.append(num)
+            puzList.append(innerList)
 
         i = i + 1
     return puzList
 
-def index(item, seq):
-    """Helper function that returns -1 for non-found index value of a seq"""
-    if item in seq:
-        return seq.index(item)
-    else:
-        return -1
+def getPuzzle(puzList):
+    #Split on each row of input to get rid white spaces and tabs
 
-class EightPuzzle:
+    #Append the 3 rows of inputs into a list
+    #forming a nxn matrix
+    puzzle = Puzzle(puzList)
+    puzzle.printPuzzle()
+    return puzzle
 
-    def __init__(self):
-        # heuristic value
-        self._hval = 0
-        # search depth of current instance
-        self._depth = 0
-        # parent node in search path
-        self._parent = None
-        self.adj_matrix = []
-        for i in range(3):
-            self.adj_matrix.append(_goal_state[i][:])
+#Gets user input on the queueing function
+#they wish to use to solve the puzzle
+def getUserAlgorithm():
 
-    def setMatrix(self, matrix):
-        self.adj_matrix = matrix
+        #Continue polling for user input
+        #while input values are not correct
+        while True:
+            print "\n\nEnter your choice of algorithm"
+            print "1. Uniform Cost Search"
+            print "2. A* with the Misplaced Tile Heuristic"
+            user_input = raw_input("3. A* with the Manhattan distance heuristic\n")
 
-    def getMatrix(self):
-        return self.adj_matrix
+            #For each individual choice, set the queueing_function
+            #respectively and return it to be passed in to
+            #general search function
+            if user_input == '1':
+                queueing_function = "UniformCostSearch"
+                print "You have chosen Uniform Cost Search \n"
+                return queueing_function
+            elif user_input == '2':
+                queueing_function = "A_star_misplaced"
+                print "You have chosen A* with Misplaced Tile Heuristic \n"
+                return queueing_function
+            elif user_input == '3':
+                queueing_function = "A_star_manhattan"
+                print "You have chosen A* with Manhattan Distance Heuristic \n"
+                return queueing_function
 
-    def __eq__(self, other):
-        if self.__class__ != other.__class__:
-            return False
-        else:
-            return self.adj_matrix == other.adj_matrix
-
-    def __str__(self):
-        res = ''
-        for row in range(3):
-            res += ' '.join(map(str, self.adj_matrix[row]))
-            res += '\r\n'
-        return res
-
-    def _clone(self):
-        p = EightPuzzle()
-        for i in range(3):
-            p.adj_matrix[i] = self.adj_matrix[i][:]
-        return p
-
-    def _get_legal_moves(self):
-        """Returns list of tuples with which the free space may
-        be swapped"""
-        # get row and column of the empty piece
-        row, col = self.find(0)
-        free = []
-        
-        # find which pieces can move there
-        if row > 0:
-            free.append((row - 1, col))
-        if col > 0:
-            free.append((row, col - 1))
-        if row < 2:
-            free.append((row + 1, col))
-        if col < 2:
-            free.append((row, col + 1))
-
-        return free
-
-    def _generate_moves(self):
-        free = self._get_legal_moves()
-        zero = self.find(0)
-
-        def swap_and_clone(a, b):
-            p = self._clone()
-            p.swap(a,b)
-            p._depth = self._depth + 1
-            p._parent = self
-            return p
-
-        return map(lambda pair: swap_and_clone(zero, pair), free)
-
-    def _generate_solution_path(self, path):
-        if self._parent == None:
-            return path
-        else:
-            path.append(self)
-            return self._parent._generate_solution_path(path)
-
-    def solve(self, h):
-        """Performs A* search for goal state.
-        h(puzzle) - heuristic function, returns an integer
-        """
-        def is_solved(puzzle):
-            return puzzle.adj_matrix == _goal_state
-
-        openl = [self]
-        closedl = []
-        move_count = 0
-        while len(openl) > 0:
-            x = openl.pop(0)
-            move_count += 1
-            if (is_solved(x)):
-                if len(closedl) > 0:
-                    return x._generate_solution_path([]), move_count
-                else:
-                    return [x]
-
-            succ = x._generate_moves()
-            idx_open = idx_closed = -1
-            for move in succ:
-                # have we already seen this node?
-                idx_open = index(move, openl)
-                idx_closed = index(move, closedl)
-                hval = h(move)
-                fval = hval + move._depth
-
-                if idx_closed == -1 and idx_open == -1:
-                    move._hval = hval
-                    openl.append(move)
-                elif idx_open > -1:
-                    copy = openl[idx_open]
-                    if fval < copy._hval + copy._depth:
-                        # copy move's values over existing
-                        copy._hval = hval
-                        copy._parent = move._parent
-                        copy._depth = move._depth
-                elif idx_closed > -1:
-                    copy = closedl[idx_closed]
-                    if fval < copy._hval + copy._depth:
-                        move._hval = hval
-                        closedl.remove(copy)
-                        openl.append(move)
-
-            closedl.append(x)
-            openl = sorted(openl, key=lambda p: p._hval + p._depth)
-
-        # if finished state not found, return failure
-        return [], 0
-
-    def find(self, value):
-        """returns the row, col coordinates of the specified value
-           in the graph"""
-        if value < 0 or value > 8:
-            raise Exception("value out of range")
-
-        for row in range(3):
-            for col in range(3):
-                if self.adj_matrix[row][col] == value:
-                    return row, col
+#Calculates misplaced tiles distance
+def calcMisplacedTilesDistance(puzzle):
     
-    def peek(self, row, col):
-        """returns the value at the specified row and column"""
-        return self.adj_matrix[row][col]
+    distance = 0
 
-    def poke(self, row, col, value):
-        """sets the value at the specified row and column"""
-        self.adj_matrix[row][col] = value
+    #For every square not in its goal state location,
+    #increment distance by 1
+    for i in range(1, puzzle.puzzleSize):
+        if puzzle.getPuzzleSquareLocation(i) != puzzle.getGoalSquareLocation(i):
+            distance += 1
+    return distance
 
-    def swap(self, pos_a, pos_b):
-        """swaps values at the specified coordinates"""
-        temp = self.peek(*pos_a)
-        self.poke(pos_a[0], pos_a[1], self.peek(*pos_b))
-        self.poke(pos_b[0], pos_b[1], temp)
-
-
-def heur(puzzle, item_total_calc, total_calc):
-    """
-    Heuristic template that provides the current and target position for each number and the 
-    total function.
+#Calculates manhattan distance
+def calcManhattanDistance(puzzle):
     
-    Parameters:
-    puzzle - the puzzle
-    item_total_calc - takes 4 parameters: current row, target row, current col, target col. 
-    Returns int.
-    total_calc - takes 1 parameter, the sum of item_total_calc over all entries, and returns int. 
-    This is the value of the heuristic function
-    """
-    t = 0
-    for row in range(3):
-        for col in range(3):
-            val = puzzle.peek(row, col) - 1
-            target_col = val % 3
-            target_row = val / 3
+    distance = 0
 
-            # account for 0 as blank
-            if target_row < 0: 
-                target_row = 2
+    #For every square not in its goal state location,
+    #calculate its absolute distance from its goal location
+    #based on row distance and column distance
+    for value in range(1,puzzle.puzzleSize):
+        goal_row_value, goal_col_value = puzzle.getGoalSquareLocation(value)
+        puzzle_row_value, puzzle_col_value = puzzle.getPuzzleSquareLocation(value)
+        distance += abs( goal_row_value - puzzle_row_value ) + \
+                                abs( goal_col_value - puzzle_col_value )
 
-            t += item_total_calc(row, target_row, col, target_col)
+    return distance
 
-    return total_calc(t)
+#Working solvability check
+#Calculates solvability of a puzzle in O(1) time
+#by calculating inversions
+#That is, for every number x in a tile n, calculate
+#the number of values that are less than x, but follow
+#after x if the matrix is stretched out into a list [1,2,3,4,5,6,7,8,0]
 
-#some heuristic functions, the best being the standard manhattan distance in this case, as it comes
-#closest to maximizing the estimated distance while still being admissible.
+"""
+Solvable : Inversion value = even for an odd width puzzle
+                        or   odd for an even width puzzle
+"""                        
+def checkSolvability(puzzle):
+    puzzle_list = []
+    inversion_count = 0
 
-def h_manhattan(puzzle):
-    return heur(puzzle,
-                lambda r, tr, c, tc: abs(tr - r) + abs(tc - c),
-                lambda t : t)
+    #Get the location of the blank and calculate its index in list format
+    blank_row, blank_col = puzzle.getBlankLocation()
+    #This is equivalent to its row value * 3 + column value
+    #[ x x x ]
+    #[ 0 x x ] blank index is 3 in list format
+    #[ x x x ] [ x, x, x, 0, x, x, x, x, x]
+    blank_index = blank_row*3 + blank_col
+    #Convert puzzle matrix to list format
+    for i in range(0, puzzle.puzzleWidth):
+        puzzle_list += puzzle.startPuzzle[i]
 
-def h_manhattan_lsq(puzzle):
-    return heur(puzzle,
-                lambda r, tr, c, tc: (abs(tr - r) + abs(tc - c))**2,
-                lambda t: math.sqrt(t))
+    #For each element index in the puzzle list
+    #Count the number of values index2 that are less than index
+    #but have a higher index value than index
+    for index in range(0, len(puzzle_list)):
+        for index2 in range(index+1, len(puzzle_list)):
+            #Make sure the current index is not the blank tile
+            if index != blank_index:
+                if puzzle_list[index2] > puzzle_list[index]:
+                    inversion_count += 1
+    
+    #Check for solvability with final inversion count
+    if puzzle.puzzleWidth % 2 == 1 and inversion_count % 2 == 0 or\
+    puzzle.puzzleWidth % 2 == 0 and inversion_count % 2 == 1:
+        return True
+    return False
 
-def h_linear(puzzle):
-    return heur(puzzle,
-                lambda r, tr, c, tc: math.sqrt(math.sqrt((tr - r)**2 + (tc - c)**2)),
-                lambda t: t)
+#General search function for solving puzzles
+def general_search(problem, queueing_function):
 
-def h_linear_lsq(puzzle):
-    return heur(puzzle,
-                lambda r, tr, c, tc: (tr - r)**2 + (tc - c)**2,
-                lambda t: math.sqrt(t))
+    num_expanded = 0 #Counts number of nodes expanded (excluding root)
+    max_nodes_in_queue = 0 #Counts maximum number of nodes in queue
+    PQueue = [] #List to be transformed into a priority queue
+    visited = {} #Dictionary to keep track of visited nodes (Allows for O(1) searching)
+    heapq.heapify(PQueue) #Heapify the list we made earlier
+    puzzle = copy.deepcopy(problem) #Make a deep copy just in case so stuff doesn't break
 
-def h_default(puzzle):
-    return 0
+    #Check for solvability in O(1) time
+    if not checkSolvability(puzzle):
+            print "\nPuzzle is not Solvable!\n"
+            return ""
 
+    #If puzzle is solvable, then calculate initial h(n)
+    if queueing_function == "UniformCostSearch":
+        puzzle.heuristicCost = 0
+
+    elif queueing_function == "A_star_misplaced":
+        puzzle.heuristicCost = calcMisplacedTilesDistance(puzzle)
+
+    elif queueing_function == "A_star_manhattan":
+        puzzle.heuristicCost = calcManhattanDistance(puzzle)
+
+    #Push initial node onto priority queue
+    heapq.heappush(PQueue,puzzle)
+
+    #While queue is not empty
+    #Values still exist in the queue which means search has not
+    #been exhausted(backup in case solvability check fails)
+    while len(PQueue) != 0:
+
+        #Pop the node with lowest total cost from queue
+        #(Overloaded <= operator in puzzle class)
+        prevPuzzle = heapq.heappop(PQueue)
+
+        #Check if the puzzle's state is equivalent to the goal state
+        if prevPuzzle.checkIfFinished():
+            #If true print out completion and the trace
+            #for nodes expanded and maximum nodes in queue
+            #print "\nGoal!!"
+            #prevPuzzle.printPuzzle()
+            #print "\nTo solve this problem the search algorithm expanded a total of", num_expanded, "nodes."
+            #print "The maximum number of nodes in the queue at any one time was", max_nodes_in_queue,"."
+            #print "The depth of the goal node was", prevPuzzle.depth , "."
+            return prevPuzzle.moveString
+
+        #Otherwise, print out trace for next best node to expand
+        #print "\nThe best state to expand with a g(n) =",prevPuzzle.depth\
+        #            ,"and h(n) =",prevPuzzle.heuristicCost,"is..."
+
+        #Print out the node that we are expanding
+        #prevPuzzle.printPuzzle()
+        #print "\nExpanding this node..."
+
+        #Generate all possible moves(children) for that node
+        puzzle_tree = prevPuzzle.GenerateMoves()
+
+        #For all the children of the current node popped
+        for puzzle in puzzle_tree:
+            
+            #Generate a list and then convert it into a string
+            #based off the puzzle's state
+            #This will be our key in our dictionary for hashing
+            puzzle_list = []
+            for list in puzzle.startPuzzle:
+                puzzle_list += list
+            puzzle_key = ""
+            for elem in puzzle_list:
+                puzzle_key += str(elem)
+
+            #If the key does not exist in our dictionary
+            if puzzle_key not in visited:
+
+                #Hash in the new node with its respective key
+                #Must convert to tuple since lists are not hashable
+                visited[puzzle_key] = tuple(puzzle_list)
+
+                #Create the new puzzle to be pushed onto queue
+                #and calculate its respective h(n) value
+                nextPuzzle = Puzzle(puzzle.startPuzzle)
+                nextPuzzle.heuristicCost = calcManhattanDistance(nextPuzzle)
+                nextPuzzle.moveString = puzzle.moveString
+                
+                #Increment depth counter for children
+                nextPuzzle.depth = prevPuzzle.depth+1
+                #Push child onto priority queue
+                heapq.heappush(PQueue,nextPuzzle)
+                #Increment number of nodes expanded
+                num_expanded += 1
+
+            #If the current number of nodes in queue exceeds
+            #current maximum counter, update maximum
+            if len(PQueue) > max_nodes_in_queue:
+                max_nodes_in_queue = len(PQueue)
+
+    #Return failure if 2nd check trips
+    #(Should not happen because solvability check should handle)
+    print "This puzzle is not solvable! \n"
+    return ""
+
+#Main block
 def main():
+
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("pieceofeight2.shallweplayaga.me", 8273))
 
-    iteration = 0
+    iterations = 0
     while True:
-        iteration += 1
-        print "OMG ITERATION NUMBER:  " + str(iteration)
+        print "OMG ITERATION NUMBER: " + str(iterations)
+        iterations += 1
         puzList = parsePuzzle(s)
-        matrix = [[puzList[0], puzList[1], puzList[2]], 
-                  [puzList[3], puzList[4], puzList[5]],
-                  [puzList[6], puzList[7], puzList[8]]]
-        
-        p = EightPuzzle()
-        p.setMatrix(matrix)
-        print p
 
-        l = EightPuzzle()
-        l.setMatrix(matrix)
+        print puzList
 
-        path, count = p.solve(h_manhattan)
-        path.reverse()
+        #Fetch user parameters
+        puzzle = getPuzzle(puzList)
+        #queueing_function = getUserAlgorithm()
+        #Pass parameters and call search
+        writeString = general_search(puzzle, "A_star_manhattan")
+        print "solution: " + writeString
 
-        lastMatrix = l
-        output = ""
-        for i in path:
-            print i
-            output += findMove(lastMatrix, i)
-            lastMatrix = i
+        s.send(writeString)
 
-        output += "\n"
-        print output
-        print 
-        s.send(output)
-       # for i in range(2, len(path)):
-        time.sleep(1)
-        print s.recv(99999)
-
+        time.sleep(.5)
+        print s.recv(999999)
         s.send("f\n")
-    
-    print "xxxERMAGERDxxx This should be the next puzzle\n\n\n"
-    print s.recv(99999)
 
+#Boiler-plate
 if __name__ == "__main__":
     main()
-
