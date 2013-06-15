@@ -33,7 +33,7 @@ print s.recv(4096)
 # Get red jug value
 s.send('look red jug\n')
 time.sleep(.2)
-red = s.recv(1024)
+red = re.search('', s.recv(1024))
 
 print red
 
