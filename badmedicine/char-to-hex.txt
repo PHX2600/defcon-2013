@@ -1,0 +1,26 @@
+a   09
+b   0a
+c   0b
+d   0c
+e   0d
+f   0e
+g   0f
+h   00
+i   01
+j   02
+k   03
+l   04
+m   05
+n   06
+o   07
+p   08
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
