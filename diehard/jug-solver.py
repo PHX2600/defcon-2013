@@ -105,10 +105,15 @@ while (smallCurrent != target and largeCurrent != target):
     time.sleep(.2)
 
     # Get small jug current value
-    out = s.send('look ' + small + ' jug')
+    out          = s.send('look ' + small + ' jug')
+    outArray     = [int(i) for i in out.split() if i.isdigit()]
+    smallCurrent = outArray[0]
+
+    # Get large jug current value
+    out = s.send('look ' + large + ' jug')
     outArray = [int(i) for i in out.split() if i.isdigit()]
 
-    smallCurrent = outArray[0]
+
 
 
 
