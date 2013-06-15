@@ -164,6 +164,8 @@ while ('hexidecimal' not in out):
 
     door = out[strPos + 8:strPos + 9]
 
+    print door
+
     exit(1)
 
     s.send('n\n')
