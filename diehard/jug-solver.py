@@ -72,9 +72,12 @@ while ('hexidecimal' not in out):
 
     # Pick up the goddamn jugs
     s.send('get blue jug\n')
-    time.sleep(.1)
+    out = s.recv(8192)
+    print out
+
     s.send('get red jug\n')
-    time.sleep(.1)
+    out = s.recv(8192)
+    print out
 
 
     # Set small and large values
