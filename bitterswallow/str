@@ -1,0 +1,161 @@
+/lib/ld-linux-armhf.so.3
+|}0`
+|.N=
+`_Ws
+libm.so.6
+__gmon_start__
+_Jv_RegisterClasses
+asin
+acos
+atan
+libc.so.6
+setuid
+socket
+exit
+htons
+srand
+initgroups
+signal
+fork
+time
+listen
+abort
+printf
+getpwnam
+strlen
+send
+memset
+__errno_location
+bind
+chdir
+recv
+setresgid
+memcpy
+setsockopt
+raise
+setegid
+getgid
+setresuid
+wait4
+seteuid
+getuid
+getegid
+freeifaddrs
+getifaddrs
+geteuid
+close
+accept
+setgid
+strcmp
+__libc_start_main
+GLIBC_2.4
+QZ^&
+:	0K
+p09Y
+vRQ>
+8STs
+LwH'
+|6*)
+g&3g
+%x %x %x
+Would you like to sum another? (y/n): 
+Welcome to the sums.
+Are you ready? (y/n): 
+CR16
+CR32
+SUM8
+SM16
+SM32
+MUL8
+ML16
+ML32
+DIV8
+DV16
+DV32
+SUB8
+SB16
+SB32
+MOD8
+MD16
+MD32
+ACOS
+ASIN
+ATAN
+BUGE
+FL16
+FL32
+ADL8
+AD16
+AD32
+APHA
+RSHA
+JSHA
+PJWH
+ELFH
+BKDR
+SDBM
+DJBH
+DEKH
+BPHA
+FNVH
+XOR8
+XR16
+XR32
+BSA2
+BSA3
+BSA4
+BSA5
+BSA6
+MMH2
+MM32
+M64A
+M64B
+ED2K
+eth0
+bitterswallow
+2'5>
+pYdq
+Fai4@~
+B c0
+s2R"
+b$C4 
+S6r&
+>2.Q
+P%@Fpg`
+RwbVr
+ftGd$T
+Wfvv
+F4VL
+DXeH
+uJTZ7j
+ld\EL
+n6~UNt^
+D7q/;M
++Yo,
+&\8!
+* qW
+LwH'
+L*~e
+[ERROR] socket() failed %x
+[ERROR] setsockopt() failed %x
+[ERROR] getifaddrs() failed %x
+[ERROR] ipv4 bind() failed %x
+[ERROR] ipv6 bind() failed %x
+[ERROR] Failed to find interface: %s
+[ERROR] getpwnam() failed %x
+[ERROR] initgroups() failed %x
+[ERROR] setresgid() failed %x
+[ERROR] setresuid() failed %x
+[ERROR] setgid() failed %x
+[ERROR] setegid() failed %x
+[ERROR] setuid() failed %x
+[ERROR] seteuid() failed %x
+[ERROR] chdir() failed %x
+ n;^
+Qkkbal
+i]Wb
+9a&g
+MGiI
+wn>Jj
+#.zf
++o*7
