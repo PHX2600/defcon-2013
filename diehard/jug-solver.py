@@ -92,8 +92,7 @@ else:
 
     exit(1)
 
-print smallCurrent
-print largeCurrent
+print smallCurrent + '/' + largeCurrent
 
 
 while (smallCurrent != target and largeCurrent != target):
