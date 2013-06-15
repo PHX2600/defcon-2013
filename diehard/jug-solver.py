@@ -162,7 +162,7 @@ while ('key' not in out):
 
     print out
 
-    room++
+    room = room + 1
 
 print out
 
