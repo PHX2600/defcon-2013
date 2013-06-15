@@ -164,6 +164,8 @@ while ('hexidecimal' not in out):
 
     strPos = out.find('Exits:');
 
+    print strPos
+
     door = out[strPos + 8:strPos + 9]
 
     print door
