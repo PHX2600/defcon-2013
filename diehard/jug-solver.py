@@ -31,7 +31,7 @@ time.sleep(.1)
 # Set room number
 room = 1
 
-out = s.recv(4096)
+out = s.recv(8192)
 
 while ('hexidecimal' not in out):
 
@@ -40,7 +40,7 @@ while ('hexidecimal' not in out):
     # Get blue jug value
     s.send('look blue jug\n')
     time.sleep(.1)
-    out = s.recv(4096)
+    out = s.recv(8192)
     blue = [int(i) for i in out.split() if i.isdigit()]
 
     blueMax = blue[1]
@@ -51,7 +51,7 @@ while ('hexidecimal' not in out):
     # Get red jug value
     s.send('look red jug\n')
     time.sleep(.1)
-    out = s.recv(4096)
+    out = s.recv(8192)
     red = [int(i) for i in out.split() if i.isdigit()]
 
     redMax = red[1]
@@ -62,7 +62,7 @@ while ('hexidecimal' not in out):
     # Get target value
     s.send('look inscription\n')
     time.sleep(.1)
-    out = s.recv(4096)
+    out = s.recv(8192)
     targetArray = [int(i) for i in out.split() if i.isdigit()]
 
     target = targetArray[0]
@@ -130,7 +130,7 @@ while ('hexidecimal' not in out):
         # Get small jug current value
         s.send('look ' + small + ' jug\n')
         time.sleep(.1)
-        out = s.recv(4096)
+        out = s.recv(8192)
         outArray = [int(i) for i in out.split() if i.isdigit()]
 
         smallCurrent = outArray[0]
@@ -138,7 +138,7 @@ while ('hexidecimal' not in out):
         # Get large jug current value
         s.send('look ' + large + ' jug\n')
         time.sleep(.1)
-        out = s.recv(4096)
+        out = s.recv(8192)
         outArray = [int(i) for i in out.split() if i.isdigit()]
         largeCurrent = outArray[0]
 
@@ -147,7 +147,7 @@ while ('hexidecimal' not in out):
     # Put large jug on scale
     s.send('put ' + large + ' jug onto scale\n')
     time.sleep(.1)
-    out = s.recv(4096)
+    out = s.recv(8192)
 
     print out
 
@@ -158,7 +158,7 @@ while ('hexidecimal' not in out):
     # Find exit and go
     s.send('look\n')
     time.sleep(.1)
-    out = s.recv(4096)
+    out = s.recv(8192)
 
     print out
 
@@ -170,7 +170,7 @@ while ('hexidecimal' not in out):
 
     s.send(door + '\n')
     time.sleep(.1)
-    out = s.recv(4096)
+    out = s.recv(8192)
 
     print out
 
