@@ -101,3 +101,5 @@ while (redCurrent != target and blueCurrent != target):
     out = s.recv(1024)
 
     print out
+
+    exit(1)
