@@ -28,6 +28,9 @@ time.sleep(.2)
 s.send('n\n')
 time.sleep(.2)
 
+# Set room number
+room = 1
+
 out = s.recv(4096)
 
 while ('key' not in out):
