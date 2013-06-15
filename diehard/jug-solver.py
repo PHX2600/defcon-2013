@@ -84,7 +84,7 @@ while (redCurrent != target and blueCurrent != target):
         # Pour blue into red
         s.send('pour blue jug into red jug')
         time.sleep(.2)
-        out = s.recv()
+        out = s.recv(1024)
 
         print out
 
@@ -99,7 +99,7 @@ while (redCurrent != target and blueCurrent != target):
         # Pour red into blue
         s.send('pour red jug into blue jug')
         time.sleep(.2)
-        out = s.recv()
+        out = s.recv(1024)
 
         print out
 
