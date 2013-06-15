@@ -166,9 +166,7 @@ while ('hexidecimal' not in out):
     door = out[start:end]
 
     s.send(door + '\n')
-    time.sleep(.1)
     out = s.recv(8192)
-
     print out
 
     room = room + 1
