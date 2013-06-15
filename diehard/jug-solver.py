@@ -53,7 +53,6 @@ while ('hexidecimal' not in out):
 
     print blueMax
 
-
     # Get red jug value
     s.send('look red jug\n')
     time.sleep(.1)
@@ -63,7 +62,6 @@ while ('hexidecimal' not in out):
     redMax = red[1]
 
     print redMax
-
 
     # Get target value
     s.send('look inscription\n')
