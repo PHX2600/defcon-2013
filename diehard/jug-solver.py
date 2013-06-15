@@ -67,16 +67,15 @@ while ('hexidecimal' not in out):
     target = targetArray[0]
     print target
 
-
-    # Pick up the goddamn jugs
+    # Pick up the blue jug
     s.send('get blue jug\n')
     out = s.recv(8192)
     print out
 
+    # Pick up the red jug
     s.send('get red jug\n')
     out = s.recv(8192)
     print out
-
 
     # Set small and large values
     if (blueMax < redMax):
