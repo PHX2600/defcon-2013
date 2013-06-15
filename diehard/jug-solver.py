@@ -35,7 +35,7 @@ s.send('look red jug\n')
 time.sleep(.2)
 red = re.search('\d', s.recv(1024))
 
-print group(red)
+print red.group(1)
 
 # Get blue jug value
 s.send('look blue jug\n')
