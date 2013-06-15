@@ -79,10 +79,14 @@ if (blueMax < redMax):
     small = 'blue'
     large = 'red'
 
-else:
+elseif (redMax < bleMax):
 
     small = 'red'
     large = 'blue'
+
+else:
+
+    kill
 
 
 while (redCurrent != target and blueCurrent != target):
