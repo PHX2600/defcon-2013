@@ -156,3 +156,5 @@ while ('key' not in out):
     out = s.recv(1024)
 
     print out
+
+print out
