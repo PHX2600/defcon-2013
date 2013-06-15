@@ -33,9 +33,9 @@ time.sleep(.1)
 print s.recv(4096)
 
 # Get red jug value
-s.send('look red jug')
+s.send('look red jug\n')
 red = s.recv(1024)
 
 # Get blue jug value
-s.send('look blue jug')
+s.send('look blue jug\n')
 blue = s.recv(1024)
