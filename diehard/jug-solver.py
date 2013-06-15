@@ -102,10 +102,12 @@ while (smallCurrent != target and largeCurrent != target):
     # Fill the small jug
     s.send('fill ' + small + ' jug\n')
     time.sleep(.2)
+    s.recv(1024)
 
     # Pour small into large
     s.send('pour ' + small + ' jug into ' + large + ' jug\n')
     time.sleep(.2)
+    s.recv(1024)
 
     # Get small jug current value
     s.send('look ' + small + ' jug\n')
