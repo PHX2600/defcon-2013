@@ -36,7 +36,7 @@ time.sleep(.2)
 str = s.recv(1024)
 red = [int(s) for s in str.split() if s.isdigit()]
 
-print red
+print red[1]
 
 # Get blue jug value
 s.send('look blue jug\n')
