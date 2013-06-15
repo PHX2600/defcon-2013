@@ -87,6 +87,7 @@ elif (redMax < blueMax):
     smallCurrent = red[0]
 
     large = 'blue'
+    largeCurrent = blue[0]
 
 else:
 
