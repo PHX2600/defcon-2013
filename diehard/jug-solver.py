@@ -27,8 +27,6 @@ s.send('w\n')
 time.sleep(.2)
 s.send('n\n')
 time.sleep(.2)
-s.send('n\n')
-time.sleep(.2)
 
 print s.recv(4096)
 
