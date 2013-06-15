@@ -130,7 +130,6 @@ while ('hexidecimal' not in out):
         # Get small jug current value
         s.send('look ' + small + ' jug\n')
         out = s.recv(8192)
-
         print out
 
         outArray = [int(i) for i in out.split() if i.isdigit()]
@@ -139,7 +138,6 @@ while ('hexidecimal' not in out):
         # Get large jug current value
         s.send('look ' + large + ' jug\n')
         out = s.recv(8192)
-
         print out
 
         outArray = [int(i) for i in out.split() if i.isdigit()]
@@ -149,9 +147,7 @@ while ('hexidecimal' not in out):
 
     # Put large jug on scale
     s.send('put ' + large + ' jug onto scale\n')
-    time.sleep(.1)
     out = s.recv(8192)
-
     print out
 
     # Drop yo shit
@@ -160,9 +156,7 @@ while ('hexidecimal' not in out):
 
     # Find exit and go
     s.send('look\n')
-    time.sleep(.1)
     out = s.recv(8192)
-
     print out
 
     strPos = out.find('Exits:');
