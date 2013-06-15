@@ -41,8 +41,8 @@ while ('hexidecimal' not in out):
     s.send('look blue jug\n')
     out = s.recv(8192)
     print out
-    blue = [int(i) for i in out.split() if i.isdigit()]
 
+    blue = [int(i) for i in out.split() if i.isdigit()]
     blueMax = blue[1]
     print blueMax
 
@@ -50,8 +50,9 @@ while ('hexidecimal' not in out):
     s.send('look red jug\n')
     time.sleep(.1)
     out = s.recv(8192)
-    red = [int(i) for i in out.split() if i.isdigit()]
+    print out
 
+    red = [int(i) for i in out.split() if i.isdigit()]
     redMax = red[1]
     print redMax
 
