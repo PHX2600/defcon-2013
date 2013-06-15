@@ -38,7 +38,7 @@ redArray = [int(i) for i in str.split() if i.isdigit()]
 
 red = redArray[1]
 
-print 'red = ' + str(red)
+print red
 
 # Get blue jug value
 s.send('look blue jug\n')
@@ -48,7 +48,7 @@ blueArray = [int(i) for i in str.split() if i.isdigit()]
 
 blue = blueArray[1]
 
-print 'blue = ' + str(blue)
+print blue
 
 # Get target value
 s.send('look inscription\n')
@@ -58,4 +58,4 @@ targetArray = [int(i) for i in str.split() if i.isdigit()]
 
 target = targetArray[0]
 
-print 'target = ' + str(target)
+print target
