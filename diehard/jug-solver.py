@@ -155,7 +155,13 @@ while ('hexidecimal' not in out):
     s.send('drop ' + small + ' jug\n')
     s.recv(1024)
 
-    # Go north
+    # Find exit and go
+    s.send('look\n')
+    time.sleep(.1)
+    out - s.recv(1024)
+
+    print out
+
     s.send('n\n')
     time.sleep(.1)
     out = s.recv(1024)
