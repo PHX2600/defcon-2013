@@ -120,7 +120,7 @@ while (smallCurrent != target and largeCurrent != target):
 
 
         # Pour small into large
-        s.send('pour ' + small + ' jug into ' + large ' jug\n')
+        s.send('pour ' + small + ' jug into ' + large + ' jug\n')
         time.sleep(.2)
         s.recv(1024)
 
