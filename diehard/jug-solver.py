@@ -119,11 +119,13 @@ while ('hexidecimal' not in out):
 
             # Dump large jug
             s.send('empty ' + large + ' jug\n')
-            s.recv(4096)
+            out = s.recv(4096)
+            print out
 
             # Pour small into large
             s.send('pour ' + small + ' jug into ' + large + ' jug\n')
-            s.recv(4096)
+            out = s.recv(4096)
+            print out
 
         # Get small jug current value
         s.send('look ' + small + ' jug\n')
