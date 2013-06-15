@@ -139,6 +139,7 @@ while (smallCurrent != target and largeCurrent != target):
 
 
         # Pour small into large
+        s.send('pour ' + small + ' jug into ' + large ' jug\n')
 
 
     exit(1)
