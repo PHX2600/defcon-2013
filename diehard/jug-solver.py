@@ -98,8 +98,14 @@ while (redCurrent != target and blueCurrent != target):
     # Pour small into large
     s.send('pour ' + small + ' jug into ' + large + ' jug\n')
     time.sleep(.2)
-    out = s.recv(1024)
 
+
+    out = s.send('look ' + small + ' jug')
+
+
+
+
+    out = s.recv(1024)
     print out
 
     exit(1)
