@@ -140,3 +140,5 @@ while (smallCurrent != target and largeCurrent != target):
 
 # Put large jug on scale
 s.send('put ' + large + ' jug onto scale')
+time.sleep(.2)
+out = s.recv(1024)
