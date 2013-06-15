@@ -135,6 +135,7 @@ while (smallCurrent != target and largeCurrent != target):
 
         # Dump large jug
         s.send('empty ' + large + ' jug\n')
+        s.recv(1024)
 
 
         # Pour small into large
