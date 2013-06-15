@@ -1,0 +1,32 @@
+>get blue jug
+You get a blue jug.
+
+>get red jug
+You get a red jug.
+
+>fill blue jug
+You fill a blue jug with 5 gallons.
+A blue jug now has 5 gallons.
+
+>pour blue jug into red jug
+You pour 3 gallons into a red jug from a blue jug.
+A red jug is now full.
+
+>empty red jug
+You empty a red jug.
+
+>pour blue jug into red jug
+You pour 2 gallons into a red jug from a blue jug.
+A blue jug is now empty.
+
+>fill blue jug
+You fill a blue jug with 5 gallons.
+A blue jug now has 5 gallons.
+
+>pour blue jug into red jug
+You pour 1 gallons into a red jug from a blue jug.
+A red jug is now full.
+
+>put blue jug onto scale
+You put a blue jug onto a scale.
+The scale balances perfectly and a door opens to the next room!
