@@ -137,3 +137,6 @@ while (smallCurrent != target and largeCurrent != target):
     largeCurrent = outArray[0]
 
     print str(smallCurrent) + '/' + str(largeCurrent)
+
+# Put large jug on scale
+s.send('put ' + large + ' jug onto scale')
