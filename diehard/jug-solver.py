@@ -163,9 +163,6 @@ while ('hexidecimal' not in out):
     print out
 
     strPos = out.find('Exits:');
-
-    print strPos
-
     start = strPos + 7
     end = strPos + 8
 
