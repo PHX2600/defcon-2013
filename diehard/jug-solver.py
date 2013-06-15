@@ -108,7 +108,7 @@ while (smallCurrent != target and largeCurrent != target):
     out = s.send('look ' + small + ' jug')
     outArray = [int(i) for i in out.split() if i.isdigit()]
 
-
+    smallCurrent = outArray[0]
 
 
 
