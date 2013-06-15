@@ -35,7 +35,7 @@ out = s.recv(4096)
 
 while ('key' not in out):
 
-    print '***** NOW ENTERING ROOM ' + room + ' *****'
+    print '***** NOW ENTERING ROOM ' + str(room) + ' *****'
 
     # Get blue jug value
     s.send('look blue jug\n')
