@@ -34,9 +34,9 @@ print s.recv(4096)
 s.send('look red jug\n')
 time.sleep(.2)
 str = s.recv(1024)
-redArray = [int(i) for i in str.split() if i.isdigit()]
+red = [int(i) for i in str.split() if i.isdigit()]
 
-red = redArray[1]
+red = red[1]
 
 print red
 
@@ -44,9 +44,9 @@ print red
 s.send('look blue jug\n')
 time.sleep(.2)
 str = s.recv(1024)
-blueArray = [int(i) for i in str.split() if i.isdigit()]
+blue = [int(i) for i in str.split() if i.isdigit()]
 
-blue = blueArray[1]
+blueMax = blue[1]
 
 print blue
 
@@ -59,3 +59,5 @@ targetArray = [int(i) for i in str.split() if i.isdigit()]
 target = targetArray[0]
 
 print target
+
+while ()
