@@ -35,7 +35,7 @@ s.send('look red jug\n')
 time.sleep(.2)
 red = re.match('^[0-9]+$', s.recv(1024))
 
-print red.group(0)
+print red
 
 # Get blue jug value
 s.send('look blue jug\n')
