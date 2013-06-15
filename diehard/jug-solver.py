@@ -160,7 +160,9 @@ while ('hexidecimal' not in out):
     time.sleep(.1)
     out = s.recv(1024)
 
-    print out
+    strPos = find('Exits:', out);
+
+    door = out[strPos + 8:strPos + 9]
 
     exit(1)
 
