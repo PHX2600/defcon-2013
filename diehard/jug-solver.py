@@ -60,4 +60,7 @@ target = targetArray[0]
 
 print target
 
-while ()
+redCurrent  = 0
+blueCurrent = 0
+
+while (redCurrent != target && blueCurrent != target)
