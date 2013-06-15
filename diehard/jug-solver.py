@@ -86,8 +86,6 @@ while ('key' not in out):
         large = 'red'
         largeCurrent = red[0]
 
-        print str(smallCurrent) + '/' + str(largeCurrent) + '/' + str(target)
-
     elif (redMax < blueMax):
 
         small = 'red'
@@ -95,8 +93,6 @@ while ('key' not in out):
 
         large = 'blue'
         largeCurrent = blue[0]
-
-        print str(smallCurrent) + '/' + str(largeCurrent) + '/' + str(target)
 
     else:
 
