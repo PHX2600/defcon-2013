@@ -53,5 +53,8 @@ print blue
 # Get target value
 s.send('look inscription\n')
 time.sleep(.2)
+str = s.recv(1024)
 
-print s.recv(1024)
+target = [int(i) for i in str.split() if i.isdigit()]
+
+print target
