@@ -113,7 +113,7 @@ while (smallCurrent != target and largeCurrent != target):
     out = s.recv(1024)
     outArray = [int(i) for i in out.split() if i.isdigit()]
 
-    print outArray
+    print out
     exit(1)
     smallCurrent = outArray[0]
 
