@@ -146,7 +146,7 @@ out = s.recv(1024)
 print out
 
 # Go north
-s.send('n')
+s.send('n\n')
 time.sleep(.2)
 out = s.recv(1024)
 
