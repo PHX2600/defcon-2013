@@ -136,7 +136,4 @@ while (smallCurrent != target and largeCurrent != target):
     outArray = [int(i) for i in out.split() if i.isdigit()]
     largeCurrent = outArray[0]
 
-    print smallCurrent + '/' + largeCurrent
-
-
-print smallCurrent + '/' + largeCurrent
+    print str(smallCurrent) + '/' + str(largeCurrent)
