@@ -32,9 +32,9 @@ out = s.recv(4096)
 
 room = 1
 
-print '***** NOW ENTERING ROOM ' + room + ' *****'
-
 while ('key' not in out):
+
+    print '***** NOW ENTERING ROOM ' + room + ' *****'
 
     # Get blue jug value
     s.send('look blue jug\n')
