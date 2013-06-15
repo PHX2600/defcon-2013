@@ -35,7 +35,7 @@ s.send('look red jug\n')
 time.sleep(.2)
 red = re.split('\d', s.recv(1024))
 
-print str(red[1])
+print red
 
 # Get blue jug value
 s.send('look blue jug\n')
