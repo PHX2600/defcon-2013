@@ -142,5 +142,5 @@ while (smallCurrent != target and largeCurrent != target):
     print largeCurrent
 
 
-print smallCurrent
+print smallCurrent + '/' + largeCurrent
 print largeCurrent
