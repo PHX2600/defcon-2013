@@ -123,6 +123,27 @@ while (smallCurrent != target and largeCurrent != target):
         s.recv(1024)
 
 
+    # Get small jug current value
+    s.send('look ' + small + ' jug\n')
+    time.sleep(.2)
+    out = s.recv(1024)
+    outArray = [int(i) for i in out.split() if i.isdigit()]
+
+    smallCurrent = outArray[0]
+
+    print smallCurrent
+
+
+    # Get large jug current value
+    s.send('look ' + large + ' jug\n')
+    time.sleep(.2)
+    out = s.recv(1024)
+    outArray  = [int(i) for i in out.split() if i.isdigit()]
+    largeCurrent = outArray[0]
+
+    print largeCurrent
+
+
 
 
     exit(1)
