@@ -13,14 +13,28 @@ l   04
 m   05
 n   06
 o   07
-p   08
-q
-r
-s
-t
-u
-v
-w
-x
-y
-z
+p   18
+q   19
+r   1a
+s   1b
+t   1c
+u   1d
+v   1e
+w   1f
+x   10
+y   11
+z   12
+
+
+ac  09cf
+ad  09c8
+ae  09c9
+
+adl
+adm
+adn
+
+admil   09c8259ca2
+admim   09c8259ca3
+admin
+admio   09c8259ca1
