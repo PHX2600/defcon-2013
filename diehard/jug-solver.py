@@ -73,7 +73,7 @@ s.send('get red jug')
 time.sleep(.2)
 
 
-while (redCurrent != target && blueCurrent != target):
+while (redCurrent != target and blueCurrent != target):
 
     if (blueMax < redMax):
 
