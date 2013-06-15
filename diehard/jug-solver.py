@@ -146,7 +146,7 @@ out = s.recv(1024)
 print out
 
 # Drop yo shit
-s.send('drop ' + small ' jug\n')
+s.send('drop ' + small + ' jug\n')
 s.recv(1024)
 
 # Go north
