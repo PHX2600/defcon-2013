@@ -73,7 +73,7 @@ s.send('get red jug\n')
 time.sleep(.2)
 
 
-
+# Set small and large values
 if (blueMax < redMax):
 
     small = 'blue'
