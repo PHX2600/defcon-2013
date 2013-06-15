@@ -107,24 +107,29 @@ while ('hexidecimal' not in out):
 
             # Fill the small jug
             s.send('fill ' + small + ' jug\n')
+            time.sleep(.1)
             s.recv(4096)
 
             # Pour small into large
             s.send('pour ' + small + ' jug into ' + large + ' jug\n')
+            time.sleep(.1)
             s.recv(4096)
 
         else:
 
             # Dump large jug
             s.send('empty ' + large + ' jug\n')
+            time.sleep(.1)
             s.recv(4096)
 
             # Pour small into large
             s.send('pour ' + small + ' jug into ' + large + ' jug\n')
+            time.sleep(.1)
             s.recv(4096)
 
         # Get small jug current value
         s.send('look ' + small + ' jug\n')
+        time.sleep(.1)
         out = s.recv(4096)
         outArray = [int(i) for i in out.split() if i.isdigit()]
 
@@ -132,6 +137,7 @@ while ('hexidecimal' not in out):
 
         # Get large jug current value
         s.send('look ' + large + ' jug\n')
+        time.sleep(.1)
         out = s.recv(4096)
         outArray = [int(i) for i in out.split() if i.isdigit()]
         largeCurrent = outArray[0]
@@ -140,6 +146,7 @@ while ('hexidecimal' not in out):
 
     # Put large jug on scale
     s.send('put ' + large + ' jug onto scale\n')
+    time.sleep(.1)
     out = s.recv(4096)
 
     print out
@@ -150,6 +157,7 @@ while ('hexidecimal' not in out):
 
     # Find exit and go
     s.send('look\n')
+    time.sleep(.1)
     out = s.recv(4096)
 
     print out
@@ -161,6 +169,7 @@ while ('hexidecimal' not in out):
     door = out[start:end]
 
     s.send(door + '\n')
+    time.sleep(.1)
     out = s.recv(4096)
 
     print out
