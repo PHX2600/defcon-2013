@@ -90,3 +90,12 @@ while (redCurrent != target && blueCurrent != target):
 
     if (redMax < blueMax):
 
+        # Fill the red jug
+        s.send('fill red jug')
+        time.sleep(.2)
+
+        # Pour red into blue
+        s.send('pour red jug into blue jug')
+        time.sleep(.2)
+        out = s.recv()
+
