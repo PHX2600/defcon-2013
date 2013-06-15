@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import socket, time, re, os
+import socket, time, re
 
 # Initilize socket connection
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
