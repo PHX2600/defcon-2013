@@ -1,0 +1,26 @@
+/lib/ld-linux.so.2
+l,EZ`
+__gmon_start__
+libc.so.6
+_IO_stdin_used
+perror
+puts
+__stack_chk_fail
+printf
+isatty
+getchar
+tcsetattr
+tcgetattr
+__libc_start_main
+__cxa_atexit
+GLIBC_2.1.3
+GLIBC_2.4
+GLIBC_2.0
+PTRh 
+UWVS
+[^_]
+not on a tty
+can't get tty settings
+The key is: 
+can't set raw mode
+;*2$"

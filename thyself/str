@@ -1,0 +1,69 @@
+/lib/ld-linux.so.2
+__gmon_start__
+libc.so.6
+_IO_stdin_used
+socket
+fflush
+exit
+htons
+perror
+connect
+puts
+__stack_chk_fail
+select
+stdin
+printf
+fgets
+memset
+read
+stdout
+inet_addr
+bcopy
+close
+__libc_start_main
+write
+GLIBC_2.4
+GLIBC_2.0
+PTRh
+QVhT
+D$,e
+[^_]
+UWVS
+[^_]
+client <IP>
+ERROR opening socket
+ERROR on connect
+SECRET
+c|w{
+9JLX
+~=d]
+lpHP
+}%02x
+%02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x
+;*2$"
+$,48
+-'96
+6:.$
+	?1#*
+HXhp
+ASe~
+ZNrl
+lt\H
+~bFT
+wiKZ 0
+@`;{
+Bc2p
+Df)m
+Fe f
+Pxs#
+R{z(
+T~a5
+V}h>
+k;bS
+f5dV
+q'fU
+|)h\
+7szG
+:}|B
+-o~A
+thisisnotthekey!
