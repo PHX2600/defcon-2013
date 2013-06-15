@@ -5,6 +5,7 @@
 import random
 import math
 import socket
+import time
 
 _goal_state = [[1,2,3],
                [4,5,6],
@@ -54,6 +55,7 @@ def findMove(before, after):
 def parsePuzzle(s):
     puzList = []
     num = 0
+    time.sleep(1)
     lines = s.recv(1024).split('\n')
     print lines
     i = 0
@@ -332,6 +334,7 @@ def main():
         print 
         s.send(output)
        # for i in range(2, len(path)):
+        time.sleep(1)
         print s.recv(99999)
 
         s.send("f\n")
