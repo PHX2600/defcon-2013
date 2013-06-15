@@ -122,7 +122,7 @@ while (smallCurrent != target and largeCurrent != target):
     print largeCurrent
 
 
-    out = s.recv(1024)
-    print out
+    # out = s.recv(1024)
+    # print out
 
     exit(1)
