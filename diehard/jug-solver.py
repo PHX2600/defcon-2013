@@ -66,7 +66,6 @@ while ('hexidecimal' not in out):
     targetArray = [int(i) for i in out.split() if i.isdigit()]
 
     target = targetArray[0]
-
     print target
 
 
