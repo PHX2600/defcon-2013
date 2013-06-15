@@ -78,6 +78,7 @@ while (redCurrent != target && blueCurrent != target):
     if (blueMax < redMax):
 
         s.send('fill blue jug')
+        time.sleep(.2)
 
 
     if (redMax < blueMax):
