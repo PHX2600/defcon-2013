@@ -118,7 +118,6 @@ while (smallCurrent != target and largeCurrent != target):
         time.sleep(.2)
         s.recv(1024)
 
-
         # Pour small into large
         s.send('pour ' + small + ' jug into ' + large + ' jug\n')
         time.sleep(.2)
@@ -134,7 +133,6 @@ while (smallCurrent != target and largeCurrent != target):
     smallCurrent = outArray[0]
 
     print smallCurrent
-
 
     # Get large jug current value
     s.send('look ' + large + ' jug\n')
