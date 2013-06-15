@@ -159,7 +159,7 @@ while ('hexidecimal' not in out):
     out = s.recv(8192)
     print out
 
-    strPos = out.find('Exits:');
+    strPos = out.find('Exits:')
     start = strPos + 7
     end = strPos + 8
 
