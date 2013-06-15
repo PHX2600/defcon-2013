@@ -162,6 +162,8 @@ while ('key' not in out):
 
     print out
 
+    room++
+
 print out
 
 exit(0)
