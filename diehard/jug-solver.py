@@ -36,7 +36,7 @@ time.sleep(.2)
 str = s.recv(1024)
 red = [int(i) for i in str.split() if i.isdigit()]
 
-red = red[1]
+redMAx = red[1]
 
 print red
 
