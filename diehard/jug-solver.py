@@ -30,7 +30,7 @@ time.sleep(.2)
 
 out = s.recv(4096)
 
-while ('key' in out):
+while ('key' not in out):
 
     # Get blue jug value
     s.send('look blue jug\n')
