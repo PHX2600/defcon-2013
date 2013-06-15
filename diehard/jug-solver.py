@@ -96,7 +96,7 @@ while (redCurrent != target and blueCurrent != target):
     time.sleep(.2)
 
     # Pour small into large
-    s.send('pour blue jug into red jug\n')
+    s.send('pour ' + small + ' jug into ' + large + ' jug\n')
     time.sleep(.2)
     out = s.recv(1024)
 
