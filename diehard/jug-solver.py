@@ -70,6 +70,7 @@ print target
 s.send('get blue jug')
 time.sleep(.2)
 s.send('get red jug')
+time.sleep(.2)
 
 
 while (redCurrent != target && blueCurrent != target):
