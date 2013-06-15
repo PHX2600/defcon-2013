@@ -30,8 +30,6 @@ time.sleep(.2)
 
 out = s.recv(4096)
 
-room = 1
-
 while ('key' not in out):
 
     print '***** NOW ENTERING ROOM ' + room + ' *****'
