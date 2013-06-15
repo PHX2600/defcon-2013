@@ -67,9 +67,9 @@ print target
 
 
 # Pick up the goddamn jugs
-s.send('get blue jug')
+s.send('get blue jug\n')
 time.sleep(.2)
-s.send('get red jug')
+s.send('get red jug\n')
 time.sleep(.2)
 
 
