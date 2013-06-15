@@ -91,14 +91,11 @@ else:
 
 while (redCurrent != target and blueCurrent != target):
 
-
-
-
-    # Fill the blue jug
+    # Fill the small jug
     s.send('fill ' + small + ' jug\n')
     time.sleep(.2)
 
-    # Pour blue into red
+    # Pour small into large
     s.send('pour blue jug into red jug\n')
     time.sleep(.2)
     out = s.recv(1024)
