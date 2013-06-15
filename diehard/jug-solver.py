@@ -146,7 +146,7 @@ while ('key' not in out):
         outArray = [int(i) for i in out.split() if i.isdigit()]
         largeCurrent = outArray[0]
 
-        print str(smallCurrent) + '/' + str(largeCurrent) + '/' + str(target)
+        print str(smallCurrent) + '/' + str(largeCurrent) + '\t' + str(target)
 
     # Put large jug on scale
     s.send('put ' + large + ' jug onto scale\n')
