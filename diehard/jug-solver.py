@@ -98,7 +98,7 @@ while ('key' not in out):
 
         exit(1)
 
-    print str(smallCurrent) + '/' + str(largeCurrent)
+    print str(smallCurrent) + '/' + str(largeCurrent) + '/' + str(target)
 
 
     while (smallCurrent != target and largeCurrent != target):
