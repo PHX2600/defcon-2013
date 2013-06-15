@@ -40,7 +40,7 @@ blue = [int(i) for i in out.split() if i.isdigit()]
 blueCurrent = blue[0]
 blueMax     = blue[1]
 
-print blue
+print blueMax
 
 
 # Get red jug value
@@ -52,7 +52,7 @@ red = [int(i) for i in out.split() if i.isdigit()]
 redCurrent = red[0]
 redMAx     = red[1]
 
-print red
+print redMAx
 
 
 # Get target value
