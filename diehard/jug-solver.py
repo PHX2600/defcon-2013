@@ -50,9 +50,9 @@ out = s.recv(1024)
 red = [int(i) for i in out.split() if i.isdigit()]
 
 redCurrent = red[0]
-redMAx     = red[1]
+redMax     = red[1]
 
-print redMAx
+print redMax
 
 
 # Get target value
