@@ -131,6 +131,9 @@ while ('hexidecimal' not in out):
         s.send('look ' + small + ' jug\n')
         time.sleep(.1)
         out = s.recv(8192)
+
+        print out
+
         outArray = [int(i) for i in out.split() if i.isdigit()]
 
         smallCurrent = outArray[0]
