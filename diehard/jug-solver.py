@@ -96,6 +96,8 @@ while ('key' not in out):
         large = 'blue'
         largeCurrent = blue[0]
 
+        print str(smallCurrent) + '/' + str(largeCurrent) + '/' + str(target)
+
     else:
 
         exit(1)
