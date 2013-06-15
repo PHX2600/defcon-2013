@@ -51,3 +51,7 @@ blue = blueArray[1]
 print blue
 
 # Get target value
+s.send('look inscription')
+time.sleep(.2)
+
+print s.recv(1024)
