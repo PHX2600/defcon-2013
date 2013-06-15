@@ -2,6 +2,19 @@
 
 import socket
 
+def moveUp(s):
+    s.send("u\n")
+
+def moveDown(s):
+    s.send("d\n")
+
+def moveLeft(s):
+    s.send("l\n")
+
+def moveRight(s):
+    s.send("r\n")
+
+
 def parsePuzzle(s):
     puzList = []
     num = 0
@@ -36,6 +49,9 @@ def parsePuzzle(s):
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(("pieceofeight2.shallweplayaga.me", 8273))
+puzList = parsePuzzle(s)
+print puzList
+moveLeft(s)
 puzList = parsePuzzle(s)
 print puzList
 
