@@ -1,4 +1,2 @@
-<?php
-
-    #!/usr/bin/php
+#!/bin/bash
 
