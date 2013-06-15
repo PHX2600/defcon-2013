@@ -158,3 +158,5 @@ while ('key' not in out):
     print out
 
 print out
+
+exit(0)
