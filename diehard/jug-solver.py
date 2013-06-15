@@ -112,6 +112,9 @@ while (smallCurrent != target and largeCurrent != target):
     time.sleep(.2)
     out = s.recv(1024)
     outArray = [int(i) for i in out.split() if i.isdigit()]
+
+    print outArray
+    exit(1)
     smallCurrent = outArray[0]
 
     print smallCurrent
