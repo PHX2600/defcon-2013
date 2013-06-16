@@ -46,7 +46,7 @@ def moveRight(s):
 
 def parseTrack(s):
     data = s.recv(1024)
-#    data = data.replace(' ', '1')
+    data = data.replace(' ', '1')
 #    data = data.replace('~',"0").replace('T',"0").replace('P',"0").replace('Z',"0").replace('r',"0").replace('c',"0").replace('x',"0").replace('X',"0").replace('s',"0").replace
     print data
     track = ''.join('')
@@ -55,8 +55,8 @@ def parseTrack(s):
     for line in lines:
       state.append([0 for i in line[1:-1] if not (i == '1')])
         
-    #for i in state:
-      #print i
+    for i in state:
+      print i
     return state
 
 def findNextMove(aTable, pos):
@@ -124,7 +124,6 @@ def main():
     pos = 2
     while 1:
       state = parseTrack(s)
-      print state
       grids = []
       for end in range(5):
         grids.append(createPathTable(end, state))
