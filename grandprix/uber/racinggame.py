@@ -105,6 +105,7 @@ def moveRight(s):
     print len(trackList)'''
 
 def createAggregate(grid1, grid2, grid3, grid4, grid5):
+    
 
 
 
@@ -119,7 +120,7 @@ def main():
     print greeting
     s.send("\n")'''
 
-    
+    creatAggregate(grid1, grid2, grid3, grid4, grid5)
 
 if __name__ == "__main__":
     main()
