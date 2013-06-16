@@ -111,8 +111,8 @@ def createPathTable(pt, state):
 def createAggregateTable(tables):
   returnTable = [[0 for col in range(5)] for row in range(8)]
   for table in tables:
-    for row in table:
-      for column in row:
+    for row in range(len(table)):
+      for column in range(len(row)):
         returnTable[row][column] += table[row][column]
   return returnTable
 
