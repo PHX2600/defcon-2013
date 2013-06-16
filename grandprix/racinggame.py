@@ -57,11 +57,11 @@ def moveRight(s):
     s.send("r\n")
 
 def parseTrack(s):
-	trackList = []
-	num = 0
-	lines = s.recv(1024).split('\n')
-	print lines
-	i = 0
+    trackList = []
+    num = 0
+    lines = s.recv(1024).split('\n')
+    print lines
+    i = 0
 
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
