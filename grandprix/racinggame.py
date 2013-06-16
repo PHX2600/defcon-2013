@@ -125,10 +125,9 @@ def main():
       state = parseTrack(s)
       grids = []
       for end in range(5):
-	grids.append(createPathTable(end, state)
+        grids.append(createPathTable(end, state)
       grid = createAggregate(grids)
       findNextMove(grid, pos)
-      
 
 if __name__ == "__main__":
     main()
