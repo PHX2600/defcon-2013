@@ -95,6 +95,7 @@ def findNextMove(aTable, pos):
 def createPathTable(pt, state):
   #initialize the table
   returnState = [[0 for col in range(5)] for row in range(9)]
+  print pt
   returnState[0][pt] = state[0][pt];
   #expand the table
   for row in range(2,8):
@@ -124,7 +125,6 @@ def main():
     pos = 2
     while 1:
       state = parseTrack(s)
-      print pos
       grids = []
       for end in range(5):
         grids.append(createPathTable(end, state))
