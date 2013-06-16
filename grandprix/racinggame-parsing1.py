@@ -43,14 +43,9 @@ def moveLeft(s):
 def moveRight(s):
     s.send("r\n")
 
-def parseTrack(s, data):
-    trackList = []
-    num = 0
-    if 'Press return to start' in data:
-      s.send('\n') 
-      data = s.recv(1024)
-    data =  data.replace(' ', '1')
-    counter = 0
+def parseTrack(s):
+    data = s.recv(1024)
+    data = data.replace(' ', '1')
     data = data.replace('~',"0").replace('T',"0").replace('P',"0").replace('Z',"0").replace('r',"0").replace('c',"0").replace('x',"0")
     lines = data.split('\n')[1:9] # 10 = Current position
     state = [] 
@@ -66,12 +61,9 @@ def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("grandprix.shallweplayaga.me", 2038))
     data = s.recv(1024)
-    parseTrack(s, data)
-    s.send('\n') 
-    data = s.recv(1024)
-    s.send('\n') 
-    data = s.recv(1024)
-    parseTrack(s, data)
+    s.send('\n')
+    while 1:
+      parseTrack(s, data)
 
 if __name__ == "__main__":
     main()
