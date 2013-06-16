@@ -35,6 +35,7 @@ Starting screen:
 import random
 import math
 import socket
+import numpy
 
 string = """
 |-----|
@@ -70,6 +71,10 @@ def getState(s):
             else:
                 trackList[row][pos] = 0
     print len(trackList)
+
+def createAggregate():
+
+
 
 
 
