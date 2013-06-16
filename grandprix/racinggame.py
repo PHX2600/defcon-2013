@@ -64,7 +64,7 @@ def parseTrack(s):
         
 #    for i in state:
 #      print i
-#    return state
+    return state
 
 def findNextMove(aTable, pos):
   #possible moves
