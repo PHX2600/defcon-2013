@@ -63,7 +63,7 @@ def main():
     data = s.recv(1024)
     s.send('\n')
     while 1:
-      parseTrack(s, data)
+      parseTrack(s)
 
 if __name__ == "__main__":
     main()
