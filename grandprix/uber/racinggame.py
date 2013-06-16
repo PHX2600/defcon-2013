@@ -63,7 +63,7 @@ def getState(s):
     rawTrack = s.recv(1024).split('\n')
     for i in rawTrack:
         trackList.append(i)
-    print trackList[0]
+    return trackList
     
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
