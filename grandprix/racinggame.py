@@ -58,6 +58,8 @@ def moveRight(s):
 
 def parseTrack(s):
     trackList = []
+    lines = s.recv(1024).split('\n')
+    if('Press return to start' in
     num = 0
     lines = s.recv(1024).split('\n')
     print lines
