@@ -62,7 +62,7 @@ def getState(s):
     trackList = []
     while s.recv(1024) > 0:
         lines = s.recv(1024).split('\n')
-        print lines
+    print lines
     
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
