@@ -127,7 +127,7 @@ def main():
       grids = []
       for end in range(5):
         grids.append(createPathTable(end, state))
-      grid = createAggregate(grids)
+      grid = createAggregateTable(grids)
       nextMove = findNextMove(grid, pos)
       pos += nextMove[0]
       s.send(nextMove[1])
