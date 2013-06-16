@@ -51,7 +51,8 @@ def parseTrack(s):
 #    data = data.replace('~',"0").replace('T',"0").replace('P',"0").replace('Z',"0").replace('r',"0").replace('c',"0").replace('x',"0").replace('X',"0").replace('s',"0").replace
     track = ''.join('')
     lines = data.split('\n')[1:9] # 10 = Current position
-    state = [] 
+    state = []
+    stateLine = []
     for line in lines:
       for i in line[1:-1]:
         if i == '1':
