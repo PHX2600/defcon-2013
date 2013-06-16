@@ -121,7 +121,6 @@ def createAggregateTable(tables):
     for row in range(len(table)):
       for column in range(len(table[row])):
         returnTable[row][column] += table[row][column]
-  print returnTable
   return returnTable
 
 def main():
