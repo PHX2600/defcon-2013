@@ -121,7 +121,7 @@ def main():
     s.send("\n")'''
 
     blah = createAggregate(grid1, grid2, grid3, grid4, grid5)
-    print blah[7]
+    print blah[7][3]
 
 if __name__ == "__main__":
     main()
