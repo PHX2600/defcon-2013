@@ -98,9 +98,9 @@ def createPathTable(pt, state):
   #expand the table
   for row in range(2,8):
     for col in range(5):
-      if (col-1 >= 0 && returnState[row-1][col-1] == 1):
+      if (col-1 >= 0 & returnState[row-1][col-1] == 1):
         returnState[row][col] += state[row][col];
-      elif (col+1 < 5 && returnState[row-1][col+1] == 1):
+      elif (col+1 < 5 & returnState[row-1][col+1] == 1):
         returnState[row][col] += state[row][col];
       elif (returnState[row-1][col] == 1):
         returnState[row][col] += state[row][col];
