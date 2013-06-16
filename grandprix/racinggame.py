@@ -51,7 +51,7 @@ def parseTrack(s):
     for char in data:
       if char == ' ':
         char = '1'
-      elif char != '\n'
+      elif char not == '\n'
         char = '0'
     lines = data.split('\n')[1:9] # 10 = Current position
     state = [] 
