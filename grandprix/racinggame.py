@@ -109,11 +109,12 @@ def createPathTable(pt, state):
 
 
 def createAggregateTable(tables):
-  returnTables = [[0 for col in range(5)] for row in range(8)]
+  returnTable = [[0 for col in range(5)] for row in range(8)]
   for table in tables:
     for row in table:
       for column in row:
-        returnTables[row][column] += tables[table][row][column]
+        returnTable[row][column] += tables[table][row][column]
+  return returnTable
 
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
