@@ -63,8 +63,8 @@ def getState(s):
     rawTrack = s.recv(1024).split('\n')
     for i in rawTrack:
         trackList.append(i)
-    for row in trackList:
-        for pos in row:
+    for row in len(trackList):
+        for pos in trackList[row]:
             if pos == " ":
                 trackList[row][pos] = 1
             else:
