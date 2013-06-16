@@ -111,12 +111,7 @@ def createAggregate(grid1, grid2, grid3, grid4, grid5):
     d = np.matrix(grid4)
     e = np.matrix(grid5)
 
-    
-
-
-
-
-
+    return a+b+c+d+e
     
 def main():
     '''s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
