@@ -53,7 +53,6 @@ def parseTrack(s):
     for line in lines:
       state.append([int(i) for i in line[1:-1]])
         
-    print len(state)
     for i in state:
       print i
     return state
@@ -70,6 +69,7 @@ def findNextMove(aTable, pos):
   bestMoves = []
   currentMax = 0;
   for move in possibleMoves:
+    print aTable
     print pos + move
     if (aTable[7][pos+move] > currentMax):
       bestMoves = [move];
