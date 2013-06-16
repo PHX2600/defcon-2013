@@ -69,8 +69,6 @@ def findNextMove(aTable, pos):
   bestMoves = []
   currentMax = 0;
   for move in possibleMoves:
-    print aTable
-    print pos + move
     if (aTable[7][pos+move] > currentMax):
       bestMoves = [move];
       currentMax = aTable[7][pos+move]
@@ -124,6 +122,7 @@ def main():
     pos = 2
     while 1:
       state = parseTrack(s)
+      print pos
       grids = []
       for end in range(5):
         grids.append(createPathTable(end, state))
