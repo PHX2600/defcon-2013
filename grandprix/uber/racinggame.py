@@ -59,10 +59,10 @@ def moveRight(s):
     s.send("r\n")
 
 def getState(s):
-	trackList = []
-	while s.recv(1024) > 0:
+    trackList = []
+    while s.recv(1024) > 0:
         trackList.append(s.recv(1024).split('\n'))
-        print trackList
+    print trackList
     
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
