@@ -91,7 +91,7 @@ def moveLeft(s):
 def moveRight(s):
     s.send("r\n")
 
-def getState(s):
+'''def getState(s):
     trackList = []
     rawTrack = s.recv(1024).split('\n')
     for i in rawTrack:
@@ -102,7 +102,7 @@ def getState(s):
                 trackList[row][pos] = 1
             else:
                 trackList[row][pos] = 0
-    print len(trackList)
+    print len(trackList)'''
 
 def createAggregate(grid1, grid2, grid3, grid4, grid5):
 
@@ -110,13 +110,16 @@ def createAggregate(grid1, grid2, grid3, grid4, grid5):
 
 
 
+
     
 def main():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    '''s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("grandprix.shallweplayaga.me", 2038))
     greeting = s.recv(1024)
     print greeting
-    s.send("\n")
+    s.send("\n")'''
+
+    
 
 if __name__ == "__main__":
     main()
