@@ -29,7 +29,6 @@ Starting screen:
 |     |
 |  u  |
 |-----|
-
 '''
 import random
 import math
