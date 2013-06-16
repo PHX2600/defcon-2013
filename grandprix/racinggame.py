@@ -120,12 +120,14 @@ def main():
     s.connect(("grandprix.shallweplayaga.me", 2038))
     s.recv(1024)
     s.send('\n')
+    pos = 2
     while 1:
       state = parseTrack(s)
       grids = []
       for end in range(5):
 	grids.append(createPathTable(end, state)
-      createAggregate(grids)
+      grid = createAggregate(grids)
+      findNextMove(grid, pos)
       
 
 if __name__ == "__main__":
