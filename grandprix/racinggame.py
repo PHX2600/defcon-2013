@@ -31,7 +31,6 @@ Starting screen:
 |-----|
 
 '''
-
 import random
 import math
 import socket
