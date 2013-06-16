@@ -106,7 +106,12 @@ def moveRight(s):
 
 def createAggregate(grid1, grid2, grid3, grid4, grid5):
     a = np.matrix(grid1)
+    b = np.matrix(grid2)
+    c = np.matrix(grid3)
+    d = np.matrix(grid4)
+    e = np.matrix(grid5)
 
+    
 
 
 
