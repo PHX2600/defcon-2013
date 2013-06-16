@@ -70,6 +70,7 @@ def findNextMove(aTable, pos):
   bestMoves = []
   currentMax = 0;
   for move in possibleMoves:
+    print pos + move
     if (aTable[7][pos+move] > currentMax):
       bestMoves = [move];
       currentMax = aTable[7][pos+move]
