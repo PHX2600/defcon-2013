@@ -36,6 +36,19 @@ import random
 import math
 import socket
 
+string = """
+|-----|
+|     |
+|     |
+|     |
+|     |
+|     |
+|     |
+|     |
+|     |
+|  u  |
+|-----|
+"""
 def moveForward(s):
     s.send("\n")
 
