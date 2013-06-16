@@ -69,6 +69,7 @@ def main():
     greeting = s.recv(1024)
     print greeting
     s.send("\n")
+    
     getState(s)
 
 if __name__ == "__main__":
