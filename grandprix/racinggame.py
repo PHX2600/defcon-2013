@@ -57,6 +57,8 @@ def parseTrack(s):
       for i in line[1:-1]:
         if i == '1':
           stateLine.append(1)
+        elif i == '=':
+          stateline.append(1)
         else:
           stateLine.append(0)
       state.append(stateLine)
