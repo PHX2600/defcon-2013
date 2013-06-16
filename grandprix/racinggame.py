@@ -58,7 +58,7 @@ def moveRight(s):
 
 def parseTrack(s):
     trackList = []
-    lines = s.recv(1024).split('\n')
+    lines = s.recv(1024)
     if('Press return to start' in
     num = 0
     lines = s.recv(1024).split('\n')
@@ -68,8 +68,6 @@ def parseTrack(s):
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("grandprix.shallweplayaga.me", 2038))
-    s.send('\n');
-    moveForward(s)
     parseTrack(s)
 
 if __name__ == "__main__":
