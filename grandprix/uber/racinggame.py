@@ -58,7 +58,7 @@ def moveLeft(s):
 def moveRight(s):
     s.send("r\n")
 
-def parseTrack(s):
+def getState(s):
 	trackList = []
 	num = 0
 	lines = s.recv(1024).split('\n')
