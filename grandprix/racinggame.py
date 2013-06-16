@@ -107,14 +107,13 @@ def createPathTable(pt, state):
         returnState[row][col] += state[row][col];
   return returnState;
 
-def createAggregate(grids):
-    a = np.matrix(grids[0])
-    b = np.matrix(grids[1])
-    c = np.matrix(grids[2])
-    d = np.matrix(grids[3])
-    e = np.matrix(grids[4])
 
-    return a+b+c+d+e
+def createAggregateTable(tables):
+  returnTables = [[0 for col in range(5)] for row in range(8)]
+  for table in tables:
+    for row in table:
+      for column in row:
+        returnTables[row][column] += tables[table][row][column]
 
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
