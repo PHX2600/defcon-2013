@@ -53,7 +53,55 @@ def parseTrack(s):
     lines = s.recv(1024).split('\n')
     print lines
     i = 0
+
+def findNextMove(aTable, pos):
+  #possible moves
+  possibleMoves = [0]
+  if (pos + 1 < 5):
+    possibleMoves.append(1)
+  if (pos -1 >= 0):
+    possibleMoves.append(-1)
+
+  #get the best moves
+  bestMoves = []
+  currentMax = 0;
+  for move in possibleMoves:
+    if (aTable[7][pos+move] > currentMax):
+      bestMoves = [move];
+      currentMax = aTable[7][pos+move]
+    elif (aTable[7][pos+move] == currentMax):
+      bestMoves.append(move)
+  
+  #closest to center
+  closest = 100
+  bestMove = 0
+  for element in bestMoves:
+    if (abs(2 - (pos+element)) < closest):
+      bestMove = element
+      closest = abs(2 - (pos+element))
+      
+  if (bestMove == 0):
+    return "\n"
+  elif (bestMove == -1):
+    return "l\n"
+  else:
+    return "r\n"
     
+def createPathTable(pt, state):
+  #initialize the table
+  returnState = [[0 for col in range(8)] for row in range(5)]
+  returnState[0][pt] = state[0][pt];
+  #expand the table
+  for row in range(2,8):
+    for col in range(5):
+      if (col-1 >= 0 && returnState[row-1][col-1] == 1):
+        returnState[row][col] += state[row][col];
+      elif (col+1 < 5 && returnState[row-1][col+1] == 1):
+        returnState[row][col] += state[row][col];
+      elif (returnState[row-1][col] == 1):
+        returnState[row][col] += state[row][col];
+  return returnState;
+
 def createAggregate(grid1, grid2, grid3, grid4, grid5):
     a = np.matrix(grid1)
     b = np.matrix(grid2)
