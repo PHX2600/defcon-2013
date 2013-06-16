@@ -105,7 +105,7 @@ def moveRight(s):
     print len(trackList)'''
 
 def createAggregate(grid1, grid2, grid3, grid4, grid5):
-
+    a = np.matrix(grid1)
 
 
 
