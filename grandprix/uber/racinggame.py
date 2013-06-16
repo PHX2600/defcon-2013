@@ -60,8 +60,7 @@ def moveRight(s):
 
 def getState(s):
     trackList = []
-    while s.recv(1024) > 0:
-        lines = s.recv(1024).split('\n')
+    lines = s.recv(1024).split('\n')
     print lines
     
 def main():
