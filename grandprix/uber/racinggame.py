@@ -66,6 +66,8 @@ def getState(s):
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("grandprix.shallweplayaga.me", 2038))
+    greeting = s.recv(1024)
+    print greeting
     s.send("\n")
     getState(s)
 
