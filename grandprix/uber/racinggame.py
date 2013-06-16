@@ -60,18 +60,14 @@ def moveRight(s):
 
 def getState(s):
 	trackList = []
-	num = 0
-	lines = s.recv(1024).split('\n')
-	print lines
-	i = 0
-
+	while s.recv(1024) > 0:
+        trackList.append(s.recv(1024).split('\n'))
+        print trackList
+    
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("grandprix.shallweplayaga.me", 2038))
     s.send("\n")
-    while s.recv(1024) > 0:
-        lines = s.recv(1024)
-        print lines
 
 if __name__ == "__main__":
     main()
