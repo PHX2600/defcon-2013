@@ -68,9 +68,9 @@ def getState(s):
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("grandprix.shallweplayaga.me", 2038))
-    moveForward(s)
-    parseTrack(s)
+    s.send("\n")
+    lines = s.recv(1024).split('\n')
+    print lines
 
 if __name__ == "__main__":
-#    main()
-    parseTrack(string)
+    main()
