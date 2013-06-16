@@ -52,8 +52,8 @@ def parseTrack(s):
     track = ''.join('')
     lines = data.split('\n')[1:9] # 10 = Current position
     state = []
-    stateLine = []
     for line in lines:
+      stateLine = []
       for i in line[1:-1]:
         if i == '1':
           stateLine.append(1)
