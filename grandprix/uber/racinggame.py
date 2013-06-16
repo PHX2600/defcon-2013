@@ -35,7 +35,7 @@ Starting screen:
 import random
 import math
 import socket
-import numpy
+import numpy as np
 
 grid1 = [[0,1,0,1,0],
          [1,0,1,0,1],
@@ -105,7 +105,7 @@ def moveRight(s):
     print len(trackList)'''
 
 def createAggregate(grid1, grid2, grid3, grid4, grid5):
-    
+
 
 
 
