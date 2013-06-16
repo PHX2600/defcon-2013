@@ -104,7 +104,7 @@ def getState(s):
                 trackList[row][pos] = 0
     print len(trackList)
 
-def createAggregate():
+def createAggregate(grid1, grid2, grid3, grid4, grid5):
 
 
 
