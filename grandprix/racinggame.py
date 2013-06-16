@@ -95,7 +95,8 @@ def findNextMove(aTable, pos):
 def createPathTable(pt, state):
   #initialize the table
   returnState = [[0 for col in range(5)] for row in range(8)]
-  print pt
+  print state
+  print returnState
   returnState[0][pt] = state[0][pt];
   #expand the table
   for row in range(2,8):
