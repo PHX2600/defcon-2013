@@ -64,7 +64,7 @@ def getState(s):
     for i in rawTrack:
         trackList.append(i)
     '''for row in range(len(trackList)):
-        for pos in len(trackList[row]):
+        for pos in range(len(trackList[row])):
             if trackList[row][pos] == " ":
                 trackList[row][pos] = 1
             else:
