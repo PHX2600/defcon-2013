@@ -60,7 +60,7 @@ def parseTrack(s):
     for line in lines:
       state.append([int(i) for i in line[1:-1]])
         
-    for i in state:
+    #for i in state:
       #print i
     return state
 
