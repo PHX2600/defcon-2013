@@ -106,12 +106,12 @@ def createPathTable(pt, state):
         returnState[row][col] += state[row][col];
   return returnState;
 
-def createAggregate(grid1, grid2, grid3, grid4, grid5):
-    a = np.matrix(grid1)
-    b = np.matrix(grid2)
-    c = np.matrix(grid3)
-    d = np.matrix(grid4)
-    e = np.matrix(grid5)
+def createAggregate(grids):
+    a = np.matrix(grids[0])
+    b = np.matrix(grids[1])
+    c = np.matrix(grids[2])
+    d = np.matrix(grids[3])
+    e = np.matrix(grids[4])
 
     return a+b+c+d+e
 
@@ -125,7 +125,7 @@ def main():
       grids = []
       for end in range(5):
 	grids.append(createPathTable(end, state)
-      createAggregate(
+      createAggregate(grids)
       
 
 if __name__ == "__main__":
