@@ -112,12 +112,12 @@ def createPathTable(pt, state):
         returnState[row][col] += state[row][col];
       elif (returnState[row-1][col] == 1):
         returnState[row][col] += state[row][col];
+  print returnState
   return returnState;
 
 
 def createAggregateTable(tables):
   returnTable = [[0 for col in range(5)] for row in range(8)]
-  print tables
   for table in tables:
     for row in range(len(table)):
       for column in range(len(table[row])):
