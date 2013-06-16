@@ -113,7 +113,7 @@ def createAggregateTable(tables):
   for table in tables:
     for row in table:
       for column in row:
-        returnTable[row][column] += tables[table][row][column]
+        returnTable[row][column] += table[row][column]
   return returnTable
 
 def main():
