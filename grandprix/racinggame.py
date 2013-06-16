@@ -85,11 +85,11 @@ def findNextMove(aTable, pos):
       closest = abs(2 - (pos+element))
       
   if (bestMove == 0):
-    return "\n"
+    return [0, "\n"]
   elif (bestMove == -1):
-    return "l\n"
+    return [-1, "l\n"]
   else:
-    return "r\n"
+    return [1, "r\n"]
     
 def createPathTable(pt, state):
   #initialize the table
@@ -127,7 +127,9 @@ def main():
       for end in range(5):
         grids.append(createPathTable(end, state)
       grid = createAggregate(grids)
-      findNextMove(grid, pos)
+      nextMove = findNextMove(grid, pos)
+      pos += nextMove[0]
+      s.send(nextMove[1])
 
 if __name__ == "__main__":
     main()
