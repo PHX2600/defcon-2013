@@ -69,7 +69,7 @@ def getState(s):
                 trackList[row][pos] = 1
             else:
                 trackList[row][pos] = 0
-
+    print trackList
 
 
 
