@@ -47,7 +47,12 @@ def moveRight(s):
 def parseTrack(s):
     data = s.recv(1024)
     data = data.replace(' ', '1')
-    data = data.replace('~',"0").replace('T',"0").replace('P',"0").replace('Z',"0").replace('r',"0").replace('c',"0").replace('x',"0").replace('X',"0").replace('s',"0")
+#    data = data.replace('~',"0").replace('T',"0").replace('P',"0").replace('Z',"0").replace('r',"0").replace('c',"0").replace('x',"0").replace('X',"0").replace('s',"0").replace
+    for char in data:
+      if char == ' ':
+        char = '1'
+      elif char != '\n'
+        char = '0'
     lines = data.split('\n')[1:9] # 10 = Current position
     state = [] 
     for line in lines:
