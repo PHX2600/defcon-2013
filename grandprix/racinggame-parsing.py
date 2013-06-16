@@ -34,19 +34,6 @@ import random
 import math
 import socket
 
-string = """
-|-----|
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|  u  |
-|-----|
-"""
 def moveForward(s):
     s.send("\n")
 
@@ -56,13 +43,12 @@ def moveLeft(s):
 def moveRight(s):
     s.send("r\n")
 
-def parseTrack(s):
+def parseTrack(s, data):
     trackList = []
     num = 0
-    data = s.recv(1024)
     if 'Press return to start' in data:
       s.send('\n') 
-    data = s.recv(1024)
+      data = s.recv(1024)
     data =  data.replace(' ', '1')
     counter = 0
     data = data.replace('~',"0").replace('T',"0").replace('P',"0").replace('Z',"0").replace('r',"0").replace('c',"0").replace('x',"0")
@@ -75,24 +61,19 @@ def parseTrack(s):
     for i in state:
       print i
     return state
-#      print "%d: %s" % (counter, line[1:-1])
-#      counter += 1
-#    currentLine= lines[-1][1:-1]
-#    print currentLine
-#    print data
-#    print lines[1]
-#    for line in data.strip('\n'):
-#    for line in lines:
-#      print "1 : %s" % line
-#    print lines
-#    print data
-#    print line
-    i = 0
 
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("grandprix.shallweplayaga.me", 2038))
-    parseTrack(s)
+    data = s.recv(1024)
+    parseTrack(s, data)
+    s.send('\n') 
+    data = s.recv(1024)
+    s.send('\n') 
+    data = s.recv(1024)
+    parseTrack(s, data)
+    data = s.recv(1024)
+    parseTrack(s, data)
 
 if __name__ == "__main__":
     main()
