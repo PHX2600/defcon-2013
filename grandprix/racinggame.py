@@ -45,14 +45,18 @@ def moveRight(s):
     s.send("r\n")
 
 def parseTrack(s):
-    trackList = []
     data = s.recv(1024)
-    if 'Press return to start' in data:
-      print data  
-    num = 0
-    lines = s.recv(1024).split('\n')
-    print lines
-    i = 0
+    data = data.replace(' ', '1')
+    data = data.replace('~',"0").replace('T',"0").replace('P',"0").replace('Z',"0").replace('r',"0").replace('c',"0").replace('x',"0")
+    lines = data.split('\n')[1:9] # 10 = Current position
+    state = [] 
+    for line in lines:
+      state.append([int(i) for i in line[1:-1]])
+        
+    print len(state)
+    for i in state:
+      print i
+    return state
 
 def findNextMove(aTable, pos):
   #possible moves
@@ -116,7 +120,13 @@ def main():
     s.connect(("grandprix.shallweplayaga.me", 2038))
     s.recv(1024)
     s.send('\n')
-    parseTrack(s)
+    while 1:
+      state = parseTrack(s)
+      grids = []
+      for end in range(5):
+	grids.append(createPathTable(end, state)
+      createAggregate(
+      
 
 if __name__ == "__main__":
     main()
