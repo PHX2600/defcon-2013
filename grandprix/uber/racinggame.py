@@ -70,8 +70,8 @@ def main():
     s.connect(("grandprix.shallweplayaga.me", 2038))
     s.send("\n")
     while s.recv(1024) > 0:
-        lines = s.recv(1024).split('\n')
+        lines = s.recv(1024)
         print lines
-        
+
 if __name__ == "__main__":
     main()
