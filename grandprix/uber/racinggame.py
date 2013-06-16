@@ -71,6 +71,8 @@ def main():
     s.send("\n")
     lines = s.recv(1024).split('\n')
     print lines
+    lines = s.recv(1024).split('\n')
+    print lines
 
 if __name__ == "__main__":
     main()
