@@ -37,19 +37,6 @@ import math
 import socket
 import numpy
 
-string = """
-|-----|
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|  u  |
-|-----|
-"""
 def moveForward(s):
     s.send("\n")
 
