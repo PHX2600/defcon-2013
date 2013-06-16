@@ -48,18 +48,20 @@ def parseTrack(s):
     data = s.recv(1024)
 #    data = data.replace(' ', '1')
 #    data = data.replace('~',"0").replace('T',"0").replace('P',"0").replace('Z',"0").replace('r',"0").replace('c',"0").replace('x',"0").replace('X',"0").replace('s',"0").replace
+    print data
     for char in data:
       if char == ' ':
         char = '1'
       elif not (char == '\n'):
         char = '0'
+    print data
     lines = data.split('\n')[1:9] # 10 = Current position
     state = [] 
     for line in lines:
       state.append([int(i) for i in line[1:-1]])
         
     for i in state:
-      print i
+      #print i
     return state
 
 def findNextMove(aTable, pos):
