@@ -66,6 +66,7 @@ def parseTrack(s):
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("grandprix.shallweplayaga.me", 2038))
+    s.send('\n');
     moveForward(s)
     parseTrack(s)
 
