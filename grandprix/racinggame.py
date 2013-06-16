@@ -1,35 +1,35 @@
 #!/usr/bin/python
-'''
-racinggame.py
+#'''
+#racinggame.py
 
-u - player
-~ - snake/crash
-T - tree/crash
-P - person/crash
-Z - zebra/crash
-r - rock/crash
-c - car/crash
-X - road block/ crash
-| - wall/crash - restrict movement to the 5 positions between the walls
+#u - player
+#~ - snake/crash
+#T - tree/crash
+#P - person/crash
+#Z - zebra/crash
+#r - rock/crash
+#c - car/crash
+#X - road block/ crash
+#| - wall/crash - restrict movement to the 5 positions between the walls
 
-At any give time it needs to be able to predict 5 steps ahead.
-Needs to be moving forward at every step.
-Avoid all objects in front of you between the walls.
+#At any give time it needs to be able to predict 5 steps ahead.
+#Needs to be moving forward at every step.
+#Avoid all objects in front of you between the walls.
 
-Starting screen:
+#Starting screen:
 
-|-----|
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|  u  |
-|-----|
-'''
+#|-----|
+#|     |
+#|     |
+#|     |
+#|     |
+#|     |
+#|     |
+#|     |
+#|     |
+#|  u  |
+#|-----|
+#'''
 import random
 import math
 import socket
