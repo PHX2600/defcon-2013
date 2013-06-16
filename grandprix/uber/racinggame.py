@@ -120,7 +120,7 @@ def main():
     print greeting
     s.send("\n")'''
 
-    creatAggregate(grid1, grid2, grid3, grid4, grid5)
+    print creatAggregate(grid1, grid2, grid3, grid4, grid5)
 
 if __name__ == "__main__":
     main()
