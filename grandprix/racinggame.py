@@ -30,23 +30,11 @@
 #|  u  |
 #|-----|
 #'''
-import random
+
 import math
 import socket
+import numpy as np
 
-string = """
-|-----|
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|     |
-|  u  |
-|-----|
-"""
 def moveForward(s):
     s.send("\n")
 
@@ -65,10 +53,21 @@ def parseTrack(s):
     lines = s.recv(1024).split('\n')
     print lines
     i = 0
+    
+def createAggregate(grid1, grid2, grid3, grid4, grid5):
+    a = np.matrix(grid1)
+    b = np.matrix(grid2)
+    c = np.matrix(grid3)
+    d = np.matrix(grid4)
+    e = np.matrix(grid5)
+
+    return a+b+c+d+e
 
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(("grandprix.shallweplayaga.me", 2038))
+    s.recv(1024)
+    s.send('\n')
     parseTrack(s)
 
 if __name__ == "__main__":
